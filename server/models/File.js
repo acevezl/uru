@@ -17,10 +17,6 @@ const fileSchema = new Schema(
             type: Schema.Types.ObjectId,
             ref: 'Therapist',
         },
-        legal_guardian: {
-            type: Schema.Types.ObjectId,
-            ref: 'User',
-        },
         notes: {
             type: String,
             required: true,

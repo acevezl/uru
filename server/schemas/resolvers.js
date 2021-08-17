@@ -1,5 +1,5 @@
 const { AuthenticationError } = require('apollo-server-express');
-const { User } = require('../models');
+const { User, Therapist } = require('../models');
 const { signToken } = require('../utils/auth');
 
 const resolvers = {
@@ -8,6 +8,7 @@ const resolvers = {
       if (context.user) {
         const userData = await User.findOne({ _id: context.user._id })
         .select('-__v -password')
+        .populate('files');
         return userData;
       }
       throw new AuthenticationError('Not logged in');
@@ -15,9 +16,17 @@ const resolvers = {
     user: async (parent, args, context) => {
       console.log(context.user);
       return User.findOne({ _id: context.user._id })
-        .select('-__v -password');
-      
+        .select('-__v -password')
+        .populate('files');
     }, 
+    therapist: async (parent, args, context) => {
+      return Therapist.findOne({ args })
+        .select('-__v -password')
+    },
+    therapists: async (parent, args, context) => {
+      return Therapist.find({args})
+        .select('-__v -password')
+    },
   },
 
   Mutation: {

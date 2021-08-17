@@ -9,8 +9,20 @@ const typeDefs = gql`
     first_name: String
     last_name: String
     phone: String
+    files: [File]
   }
 
+  type Therapist {
+    _id: ID
+    username: String
+    email: String
+    password: String
+    first_name: String
+    last_name: String
+    phone: String
+    specialty: String
+    files: [File]
+  }
   type Auth {
     token: ID!
     user: User

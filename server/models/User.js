@@ -29,7 +29,13 @@ const userSchema = new Schema(
     phone: {
       type: String,
       required: true,
-    }
+    },
+    files: [
+      {
+        type: Schema.Types.ObjectId,
+        ref: 'File'
+      }
+    ],
   },
   // set this to use virtual below
   {
@@ -55,8 +61,8 @@ userSchema.methods.isCorrectPassword = async function (password) {
 };
 
 // when we query a user, we'll also get another field called `bookCount` with the number of saved books we have
-userSchema.virtual('bookCount').get(function () {
-  return this.savedBooks.length;
+userSchema.virtual('fileCount').get(function () {
+  return this.files.length;
 });
 
 const User = model('User', userSchema);
