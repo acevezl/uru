@@ -20,17 +20,30 @@ const typeDefs = gql`
     first_name: String
     last_name: String
     phone: String
-    specialty: String
-    files: [File]
+    specialties: [String]
+    skills: [String]
   }
+
+  type File {
+    _id: ID
+    patient_name: String
+    dob: String
+    allergies: [String]
+    therapist: [Therapist]
+    notes: [String]
+  }
+
   type Auth {
     token: ID!
     user: User
   }
 
   type Query {
-    me: User,
-    user: User
+    me: User
+    user(username: String!): User
+    therapist(username: String!): Therapist
+    therapists(criteria: String): [Therapist]
+
   }
 
   type Mutation {

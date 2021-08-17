@@ -64,11 +64,6 @@ therapistSchema.methods.isCorrectPassword = async function (password) {
   return bcrypt.compare(password, this.password);
 };
 
-// when we query a user, we'll also get another field called `bookCount` with the number of saved books we have
-therapistSchema.virtual('fileCount').get(function () {
-  return this.files.length;
-});
-
 const Therapist = model('Therapist', therapistSchema);
 
 module.exports = Therapist;
