@@ -1,10 +1,14 @@
 import React from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+
 import Home from './pages/Home';
 import Navbar from './components/Navbar';
+import Footer from './components/Footer';
 
 import { ApolloProvider } from '@apollo/react-hooks';
 import ApolloClient from 'apollo-boost';
+import '../node_modules/bootstrap/dist/css/bootstrap.min.css'
+
 
 const client = new ApolloClient({
   request: operation => {
@@ -29,6 +33,7 @@ function App() {
             <Route exact path='/' component={Home} />
             <Route render={() => <h1 className='display-2'>The page requested does not exist!</h1>} />
           </Switch>
+          <Footer />
         </>
       </Router>
     </ApolloProvider>
