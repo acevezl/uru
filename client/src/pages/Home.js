@@ -8,7 +8,7 @@ import FormControl from 'react-bootstrap/FormControl';
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 
-// import Auth from '../utils/auth';
+import Auth from '../utils/auth';
 
 const Home = () => {
 
