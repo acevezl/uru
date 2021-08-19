@@ -6,7 +6,7 @@ import Col from 'react-bootstrap/Col';
 import InputGroup from 'react-bootstrap/InputGroup';
 import FormControl from 'react-bootstrap/FormControl';
 import Button from 'react-bootstrap/Button';
-// import Card from 'react-bootstrap/Card';
+import Card from 'react-bootstrap/Card';
 
 // import Auth from '../utils/auth';
 
@@ -28,7 +28,7 @@ const Home = () => {
         </Row>
 
         {/* therapist cards, need to be conditionally rendered */}
-        {/* <Row>
+        <Row>
           <Col>
             <Card style={{ width: '18rem' }} className='mx-auto mb-2'>
               <Card.Img variant="top" src="https://st.depositphotos.com/1011643/2504/i/950/depositphotos_25041805-stock-photo-psychologist-with-patient.jpg" />
@@ -113,9 +113,9 @@ const Home = () => {
             </Card>
           </Col>
 
-        </Row> */}
+        </Row>
 
-          <Row className="flex-lg-row-reverse align-items-center g-5 py-5">
+          {/* <Row className="flex-lg-row-reverse align-items-center g-5 py-5">
               <div className="col-10 col-sm-8 col-lg-6 mb-4" >
                 <img src="https://st.depositphotos.com/1011643/2504/i/950/depositphotos_25041805-stock-photo-psychologist-with-patient.jpg" className="d-block mx-lg-auto img-fluid" alt="Therapist Stock" width="400" height="500" loading="lazy"></img>
               </div>
@@ -159,7 +159,7 @@ const Home = () => {
                   <button type="button" className="btn btn-warning btn-lg px-4 me-md-2 text-white">Learn More</button>
                 </div>
               </div>
-          </Row>
+          </Row> */}
       </Container>
     </>
   );
