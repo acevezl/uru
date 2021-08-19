@@ -35,21 +35,6 @@ const SignupForm = () => {
       event.stopPropagation();
     }
 
-    // try {
-    //   const response = await addUser(userFormData);
-
-    //   if (!response.ok) {
-    //     throw new Error('something went wrong!');
-    //   }
-
-    //   const { token, user } = await response.json();
-    //   console.log(user);
-    //   Auth.login(token);
-    // } catch (err) {
-    //   console.error(err);
-    //   setShowAlert(true);
-    // }
-
     try {
       const { data } = await addUser({
         variables: { ...userFormData }
@@ -58,20 +43,7 @@ const SignupForm = () => {
       Auth.login(data.addUser.token);
     } catch (e) {
       setShowAlert(true);
-      //console.error(e);
     }
-
-
-    // console.log(userFormData);
-    // try {
-    //   const { data } = await addUser({
-    //     variables: { ...userFormData }
-    //   });
-
-    //   Auth.login(data.addUser.token);
-    // } catch (e) {
-    //   console.error(e);
-    // }
 
     setUserFormData({
       username: '',
@@ -100,6 +72,45 @@ const SignupForm = () => {
             required
           />
           <Form.Control.Feedback type='invalid'>Username is required!</Form.Control.Feedback>
+        </Form.Group>
+
+        <Form.Group>
+          <Form.Label htmlFor='first_name'>First Name</Form.Label>
+          <Form.Control
+            type='text'
+            placeholder='Your first name'
+            name='first_name'
+            onChange={handleInputChange}
+            value={userFormData.first_name}
+            required
+          />
+          <Form.Control.Feedback type='invalid'>First name is required!</Form.Control.Feedback>
+        </Form.Group>
+
+        <Form.Group>
+          <Form.Label htmlFor='last_name'>Last Name</Form.Label>
+          <Form.Control
+            type='text'
+            placeholder='Your last name'
+            name='last_name'
+            onChange={handleInputChange}
+            value={userFormData.last_name}
+            required
+          />
+          <Form.Control.Feedback type='invalid'>Last name is required!</Form.Control.Feedback>
+        </Form.Group>
+
+        <Form.Group>
+          <Form.Label htmlFor='phone'>Phone Number</Form.Label>
+          <Form.Control
+            type='text'
+            placeholder='Your phone number'
+            name='phone'
+            onChange={handleInputChange}
+            value={userFormData.phone}
+            required
+          />
+          <Form.Control.Feedback type='invalid'>Your phone number is required!</Form.Control.Feedback>
         </Form.Group>
 
         <Form.Group>

@@ -6,6 +6,31 @@ const typeDefs = gql`
     username: String
     email: String
     password: String
+    first_name: String
+    last_name: String
+    phone: String
+    files: [File]
+  }
+
+  type Therapist {
+    _id: ID
+    username: String
+    email: String
+    password: String
+    first_name: String
+    last_name: String
+    phone: String
+    specialties: [String]
+    skills: [String]
+  }
+
+  type File {
+    _id: ID
+    patient_name: String
+    dob: String
+    allergies: [String]
+    therapist: [Therapist]
+    notes: [String]
   }
 
   type Auth {
@@ -14,13 +39,16 @@ const typeDefs = gql`
   }
 
   type Query {
-    me: User,
-    user: User
+    me: User
+    user(username: String!): User
+    therapist(username: String!): Therapist
+    therapists(criteria: String): [Therapist]
+
   }
 
   type Mutation {
     login(email: String!, password: String!): Auth
-    addUser(username: String!, email: String!, password: String!): Auth
+    addUser(username: String!, email: String!, password: String!, first_name: String!, last_name: String!, phone: String!): Auth
   }
 `;
 
