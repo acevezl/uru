@@ -26,6 +26,20 @@ const resolvers = {
       const therapists = await Therapist.find({}).select("-__v -password");
       return therapists;
     },
+    therapistcriteria: async (parent, args, context) => {
+      const criteriaArray = args.criteria.split(' ');
+      
+      let orCriteria = [];
+      criteriaArray.forEach( word => {
+        orCriteria.push({specialties: { "$regex": word, "$options": "i" }});
+        orCriteria.push({skills: { "$regex": word, "$options": "i" }});
+      });
+      console.log(orCriteria);
+      const therapists = await Therapist.find({
+        $or: orCriteria 
+      }).select("-__v -password");
+      return therapists;
+    },
   },
 
   Mutation: {

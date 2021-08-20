@@ -23,9 +23,6 @@ const Home = () => {
     <>
       <Container>
         <SearchBar></SearchBar>
-
-
-        
         {/* therapist cards, need to be conditionally rendered */}
         <Row>
           {loading ? (
