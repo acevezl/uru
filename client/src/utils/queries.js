@@ -38,6 +38,7 @@ export const QUERY_THERAPIST = gql`
       phone
       specialties
       skills
+      photo
     }
   }
 `;
@@ -53,6 +54,7 @@ export const QUERY_THERAPISTS = gql`
       phone
       specialties
       skills
+      photo
     }
   }
 `;

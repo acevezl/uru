@@ -39,7 +39,10 @@ const therapistSchema = new Schema(
     skills: [{
       type: String,
       required: true,
-    }]
+    }],
+    photo: {
+      type: String
+    }
   },
   // set this to use virtual below
   {

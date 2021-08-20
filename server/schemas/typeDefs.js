@@ -6,7 +6,7 @@ const typeDefs = gql`
     username: String
     email: String
     password: String
-    first_name: String
+    first_name: Stringgit p
     last_name: String
     phone: String
     files: [File]
@@ -22,6 +22,7 @@ const typeDefs = gql`
     phone: String
     specialties: [String]
     skills: [String]
+    photo: String
   }
 
   type File {
