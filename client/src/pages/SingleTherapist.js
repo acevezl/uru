@@ -23,8 +23,7 @@ const SingleTherapist = (props) => {
             <div className="container col-xxl-8 px-4 py-5">
                 <div className="row flex-lg-row-reverse align-items-center g-5">
                     <div className="col-10 col-sm-8 col-lg-6">
-                        
-                        <img src={therapist.photo}  className="d-block mx-lg-auto img-fluid" alt="Therapist Stock Photo" width="400" height="300" loading="lazy" />
+                        <img src={therapist.photo}  className="d-block mx-lg-auto img-fluid" alt={therapist.first_name + ' ' + therapist.last_name} width="400" height="300" loading="lazy" />
                     </div>
                     <div className="col-lg-5">
                         <h1 className="display-5 fw-bold lh-1 mb-3">

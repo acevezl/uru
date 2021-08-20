@@ -1,28 +1,39 @@
-import React from "react";
-
-import Container from 'react-bootstrap/Container';
-import Row from 'react-bootstrap/Row';
+import React, { useState } from 'react';
+import { Row, Container, Col, Form, InputGroup, FormControl, Button } from 'react-bootstrap';
 
 import Auth from "../utils/auth";
 
 import { useQuery } from "@apollo/react-hooks";
-import { QUERY_THERAPISTS } from "../utils/queries";
+import { QUERY_THERAPISTS_CRITERIA } from "../utils/queries";
 import TherapistList from "../components/TherapistList";
 
-import SearchBar from '../components/SearchBar';
-
 const Home = () => {
+  const [searchText, setSearchText] = useState('');
 
-  const { loading, data } = useQuery(QUERY_THERAPISTS);
-  console.log(data);
-  const therapists = data?.therapists || [];
+  const { loading, data } = useQuery(QUERY_THERAPISTS_CRITERIA, {
+    variables: { criteria: searchText }
+  });
 
-  const loggedIn = Auth.loggedIn();
+  const therapists = data?.therapistcriteria || [];
 
   return (
     <>
       <Container>
-        <SearchBar></SearchBar>
+        <>
+          <Row className='text-center my-4 col-12'>
+              <Col><h1 style={{color: '#69b4d4'}}>Let us help you find a Therapist for your child...</h1></Col>
+          </Row>
+          <Row className='text-center my-4 col-12'>
+              <Form onSubmit={setSearchText} className='col-12'>
+                  <InputGroup className="mb-3 mx-auto" style={{ width: '75%' }} type='search'>
+                  <FormControl 
+                  name="searchText" placeholder="Seach for a specialty..." className='mx-2'
+                  />
+                  <Button variant="outline-warning">Search</Button>{' '}
+                  </InputGroup>
+              </Form>
+          </Row>
+        </>
         {/* therapist cards, need to be conditionally rendered */}
         <Row>
           {loading ? (

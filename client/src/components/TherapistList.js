@@ -1,9 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-import Col from "react-bootstrap/Col";
-import Button from "react-bootstrap/Button";
-import Card from "react-bootstrap/Card";
+import { Col, Card } from "react-bootstrap";
 
 const TherapistList = ({ therapists }) => {
   if (!therapists.length) {
