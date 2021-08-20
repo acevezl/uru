@@ -1,12 +1,15 @@
 import React from 'react';
+import { Github } from 'react-bootstrap-icons'
 
 function Footer() {
     return (
-        <footer class="py-3 my-4">
-        <ul class="nav justify-content-center border-bottom p-3 mb-3">
-          <li class="nav-item" style={{ color: '#9bb2c1'}}>"Today, You are You, that is Truer than True, There is no one alive, that is Youer than You" - Dr. Seuss</li>
+        <footer className="py-3 my-4 mx-4">
+        <ul className="nav justify-content-center border-bottom p-3 mb-3">
+          <li className="nav-item" style={{ color: '#69b4d4'}}>"Today, You are You, that is Truer than True, There is no one alive, that is Youer than You" - Dr. Seuss</li>
         </ul>
-        <p class="text-center" style={{ color: '#9bb2c1'}}>Created by Team Name</p>
+        <p className="text-center"><a href="https://github.com/acevezl/uru" target="_blank" rel="noopener noreferrer" style={{ color: '#69b4d4'}}><Github></Github></a></p>
+        
+
       </footer>
     )
 };
