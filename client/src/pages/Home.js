@@ -1,5 +1,13 @@
-import React, { useState, useParams } from 'react';
-import { Row, Container, Col, Form, InputGroup, FormControl, Button } from 'react-bootstrap';
+import React, { useState, useParams } from "react";
+import {
+  Row,
+  Container,
+  Col,
+  Form,
+  InputGroup,
+  FormControl,
+  Button,
+} from "react-bootstrap";
 
 import Auth from "../utils/auth";
 
@@ -8,41 +16,50 @@ import { QUERY_THERAPISTS_CRITERIA } from "../utils/queries";
 import TherapistList from "../components/TherapistList";
 
 const Home = () => {
-  const [searchText, setSearchText] = useState('');
+  const [searchText, setSearchText] = useState("");
 
   const { loading, data } = useQuery(QUERY_THERAPISTS_CRITERIA, {
-    variables: { criteria: searchText }
+    variables: { criteria: searchText },
   });
 
   const therapists = data?.therapistcriteria || [];
 
   // update state based on form input changes
-  const handleChange = event => {
+  const handleChange = (event) => {
     setSearchText(event.target.value);
   };
 
-  const handleSearch = async event => {
+  const handleSearch = async (event) => {
     event.preventDefault();
-    
   };
 
   return (
     <>
       <Container>
         <>
-          <Row className='text-center my-4 col-12'>
-              <Col><h1 style={{color: '#69b4d4'}}>Let us help you find a Therapist for your child...</h1></Col>
+          <Row className="text-center my-4 col-12">
+            <Col>
+              <h1 style={{ color: "#116c95" }}>
+                Let us help you find a Therapist for your child!
+              </h1>
+            </Col>
           </Row>
-          <Row className='text-center my-4 col-12'>
-              <Form onSubmit={handleSearch} className='col-12'>
-                  <InputGroup className="mb-3 mx-auto" style={{ width: '75%' }} type='search'>
-                  <FormControl 
-                  name="searchText" placeholder="Seach for a specialty..." className='mx-2'
+          <Row className="text-center my-4 col-12">
+            <Form onSubmit={handleSearch} className="col-12">
+              <InputGroup
+                className="mb-3 mx-auto"
+                style={{ width: "75%" }}
+                type="search"
+              >
+                <FormControl
+                  name="searchText"
+                  placeholder="Seach for a specialty..."
+                  className="mx-2"
                   onChange={handleChange}
-                  />
-                  <Button variant="outline-warning">Search</Button>{' '}
-                  </InputGroup>
-              </Form>
+                />
+                <Button variant="outline-warning">Search</Button>{" "}
+              </InputGroup>
+            </Form>
           </Row>
         </>
         {/* therapist cards, need to be conditionally rendered */}

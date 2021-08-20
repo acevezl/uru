@@ -1,13 +1,13 @@
-import React, { useState } from 'react';
+import React, { useState } from "react";
 
-import { Modal, Tab } from 'react-bootstrap';
+import { Modal, Tab } from "react-bootstrap";
 
-import { FilePersonFill } from 'react-bootstrap-icons';
+import { FilePersonFill } from "react-bootstrap-icons";
 
-import SignUpForm from './SignupForm';
-import LoginForm from './LoginForm';
+import SignUpForm from "./SignupForm";
+import LoginForm from "./LoginForm";
 
-import Auth from '../utils/auth';
+import Auth from "../utils/auth";
 
 const AppNavbar = () => {
   // set modal display state
@@ -20,9 +20,9 @@ const AppNavbar = () => {
         <a className="navbar-brand" href="/">
           <FilePersonFill
             className="mb-1"
-            style={{ color: "#69b4d4" }}
+            style={{ color: "#785809" }}
           ></FilePersonFill>
-          <span style={{ color: "#69b4d4" }}>URU</span>
+          <span style={{ color: "#116c95" }}>URU</span>
         </a>
 
         <div className="form-inline">
@@ -55,7 +55,7 @@ const AppNavbar = () => {
                 Login
               </a>
               <a
-                className="btn btn-warning my-2 my-sm-0 text-white"
+                className="btn btn-secondary my-2 my-sm-0 text-white"
                 type="submit"
                 onClick={() => setShowSignupModal(true)}
                 href=""
@@ -96,13 +96,11 @@ const AppNavbar = () => {
       >
         {/* tab container to do either signup or login component */}
         <Tab.Container>
-          
           <Modal.Header closeButton>
             <Modal.Title>Sign Up</Modal.Title>
           </Modal.Header>
           <Modal.Body>
             <Tab.Content>
-              
               <SignUpForm handleModalClose={() => setShowSignupModal(false)} />
             </Tab.Content>
           </Modal.Body>
