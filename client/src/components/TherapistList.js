@@ -9,7 +9,7 @@ const TherapistList = ({ therapists }) => {
   if (!therapists.length) {
     return <h3>No therapists were found</h3>;
   }
-  console.log(therapists);
+
   return (
     <>
       {therapists &&
@@ -39,7 +39,7 @@ const TherapistList = ({ therapists }) => {
                     ))}
                   </ul>
                 </Card.Text>
-                <Button variant="primary">Book an appointment</Button>
+                <Link className='btn btn-primary' to={`/therapist/${therapist._id}`}>View Profile</Link>
               </Card.Body>
             </Card>
           </Col>

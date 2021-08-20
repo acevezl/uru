@@ -19,8 +19,8 @@ const resolvers = {
         .select("-__v -password")
         .populate("files");
     },
-    therapist: async (parent, args, context) => {
-      return await Therapist.findOne({ args }).select("-__v -password");
+    therapist: async (parent, { _id }) => {
+      return Therapist.findOne({ _id });
     },
     therapists: async (parent, args, context) => {
       const therapists = await Therapist.find({}).select("-__v -password");

@@ -28,8 +28,8 @@ export const QUERY_ME = gql`
 `;
 
 export const QUERY_THERAPIST = gql`
-  query therapist($username: String!) {
-    therapist(username: $username) {
+  query therapist($id: ID!) {
+    therapist(_id: $id) {
       _id
       username
       email
