@@ -1,5 +1,5 @@
-const { Schema, model } = require('mongoose');
-const bcrypt = require('bcrypt');
+const { Schema, model } = require("mongoose");
+const bcrypt = require("bcrypt");
 
 const therapistSchema = new Schema(
   {
@@ -12,7 +12,7 @@ const therapistSchema = new Schema(
       type: String,
       required: true,
       unique: true,
-      match: [/.+@.+\..+/, 'Must use a valid email address'],
+      match: [/.+@.+\..+/, "Must use a valid email address"],
     },
     password: {
       type: String,
@@ -31,18 +31,22 @@ const therapistSchema = new Schema(
       required: true,
     },
     // Specialties are: 'Mental health', 'Autism', 'Group therapy', 'Child abuse', 'Speech therapy'
-    specialties: [{
-      type: String,
-      required: true,
-    }],
+    specialties: [
+      {
+        type: String,
+        required: true,
+      },
+    ],
     // Skills are: 'Sign Language', 'Music', 'Arts', etc
-    skills: [{
-      type: String,
-      required: true,
-    }],
+    skills: [
+      {
+        type: String,
+        required: true,
+      },
+    ],
     photo: {
-      type: String
-    }
+      type: String,
+    },
   },
   // set this to use virtual below
   {
@@ -53,8 +57,8 @@ const therapistSchema = new Schema(
 );
 
 // hash user password
-therapistSchema.pre('save', async function (next) {
-  if (this.isNew || this.isModified('password')) {
+therapistSchema.pre("save", async function (next) {
+  if (this.isNew || this.isModified("password")) {
     const saltRounds = 10;
     this.password = await bcrypt.hash(this.password, saltRounds);
   }
@@ -67,6 +71,6 @@ therapistSchema.methods.isCorrectPassword = async function (password) {
   return bcrypt.compare(password, this.password);
 };
 
-const Therapist = model('Therapist', therapistSchema);
+const Therapist = model("Therapist", therapistSchema);
 
 module.exports = Therapist;

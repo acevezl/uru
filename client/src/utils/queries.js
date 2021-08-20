@@ -1,4 +1,4 @@
-import gql from 'graphql-tag';
+import gql from "graphql-tag";
 
 export const QUERY_ME = gql`
   {
@@ -43,9 +43,25 @@ export const QUERY_THERAPIST = gql`
   }
 `;
 
+export const QUERY_THERAPISTS_CRITERIA = gql`
+  query therapistcriteria($criteria: String) {
+    therapistcriteria(filter:{or:[{specialties: $criteria},{skills: $criteria}]}) {
+      _id
+      username
+      email
+      first_name
+      last_name
+      phone
+      specialties
+      skills
+      photo
+    }
+  }
+`;
+
 export const QUERY_THERAPISTS = gql`
-  query therapists($criteria: String) {
-    therapist({$or:[{specialties: $criteria},{skills: $criteria}]}) {
+  {
+    therapists {
       _id
       username
       email
