@@ -45,8 +45,8 @@ export const QUERY_THERAPIST = gql`
 `;
 
 export const QUERY_THERAPISTS_CRITERIA = gql`
-  query therapistcriteria($criteria: String) {
-    therapistcriteria(filter:{or:[{specialties: $criteria},{skills: $criteria}]}) {
+  query therapistcriteria($criteria: String!) {
+    therapistcriteria(criteria: $criteria) {
       _id
       username
       email

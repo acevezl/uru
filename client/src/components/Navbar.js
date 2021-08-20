@@ -1,8 +1,6 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
 
-import Modal from 'react-bootstrap/Modal';
-import Tab from 'react-bootstrap/Tab';
+import { Modal, Tab } from 'react-bootstrap';
 
 import { FilePersonFill } from 'react-bootstrap-icons';
 
@@ -34,12 +32,14 @@ const AppNavbar = () => {
                 className="btn btn-outline-secondary my-2 my-sm-0 mx-2"
                 type="submit"
                 onClick={Auth.logout}
+                href=""
               >
                 Logout
               </a>
               <a
                 className="btn btn-warning my-2 my-sm-0 text-white"
                 type="submit"
+                href=""
               >
                 Search
               </a>
@@ -50,6 +50,7 @@ const AppNavbar = () => {
                 className="btn btn-outline-secondary my-2 my-sm-0 mx-2"
                 type="submit"
                 onClick={() => setShowLoginModal(true)}
+                href=""
               >
                 Login
               </a>
@@ -57,6 +58,7 @@ const AppNavbar = () => {
                 className="btn btn-warning my-2 my-sm-0 text-white"
                 type="submit"
                 onClick={() => setShowSignupModal(true)}
+                href=""
               >
                 Sign Up
               </a>
