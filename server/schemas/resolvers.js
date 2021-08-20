@@ -20,7 +20,7 @@ const resolvers = {
         .populate("files");
     },
     therapist: async (parent, { _id }) => {
-      return Therapist.findOne({ _id });
+      return Therapist.findOne({ _id }).select("-__v -password");
     },
     therapists: async (parent, args, context) => {
       const therapists = await Therapist.find({}).select("-__v -password");

@@ -23,6 +23,7 @@ const typeDefs = gql`
     specialties: [String]
     skills: [String]
     photo: String
+    bio: String
   }
 
   type File {

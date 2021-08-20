@@ -39,6 +39,7 @@ export const QUERY_THERAPIST = gql`
       specialties
       skills
       photo
+      bio
     }
   }
 `;
@@ -55,6 +56,7 @@ export const QUERY_THERAPISTS_CRITERIA = gql`
       specialties
       skills
       photo
+      bio
     }
   }
 `;
@@ -71,6 +73,7 @@ export const QUERY_THERAPISTS = gql`
       specialties
       skills
       photo
+      bio
     }
   }
 `;

@@ -47,6 +47,9 @@ const therapistSchema = new Schema(
     photo: {
       type: String,
     },
+    bio: {
+      type: String,
+    },
   },
   // set this to use virtual below
   {

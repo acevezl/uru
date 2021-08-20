@@ -65,6 +65,7 @@ db.once("open", async () => {
       "https://cdn.fakercloud.com/avatars/" +
       faker.image.avatar().split("/")[6] +
       "_128.jpg";
+    const bio = faker.hacker.phrase();
 
     // https://s3.amazonaws.com/uifaces/faces/twitter/joannefournier/128.jpg'
 
@@ -91,13 +92,14 @@ db.once("open", async () => {
       skills,
       specialties,
       photo,
+      bio,
     });
   }
 
   const createdTherapists = await Therapist.collection.insertMany(
     therapistData
   );
-  //   console.log(createdTherapists);
+  console.log(createdTherapists);
 
   console.log("all done!");
   process.exit(0);

@@ -30,7 +30,7 @@ const SingleTherapist = (props) => {
                         <h1 className="display-5 fw-bold lh-1 mb-3">
                             {therapist.first_name} {therapist.last_name}
                         </h1>
-                        <p className="lead">Description using faker</p>
+                        <p className="lead">{therapist.bio}</p>
 
                         {loggedIn && (
                             <div className="d-grid gap-2 d-md-flex justify-content-md-start">
