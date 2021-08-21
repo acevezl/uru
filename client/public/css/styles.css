@@ -350,31 +350,11 @@ p {
 
 .site-footer {
   padding: 10rem 0 3rem 0;
-  background-image: linear-gradient(
-    120deg,
-    #c58d05,
-    #d8e1e9,
-    #ffffff,
-    #ffffff,
-    #ffffff,
-    #d8e1e9,
-    #ae8da6
-  );
+  background-color: linear-gradient(120deg, #252719, #3c5155, #5d5a4a);
 }
 
 .site-footer--with-clipmask {
-  clip-path: polygon(
-    50% 0%,
-    80% 10%,
-    100% 35%,
-    100% 100%,
-    81% 100%,
-    50% 100%,
-    20% 100%,
-    0 100%,
-    0% 35%,
-    20% 10%
-  );
+  clip-path: polygon(72% 0, 100% 12%, 100% 100%, 100% 100%, 0 100%, 0 18%);
 }
 
 .site-footer__quote {
@@ -455,7 +435,7 @@ p {
 }
 
 .btn-primary {
-  background-color: #405e79;
+  background-color: #1e88e5;
   color: #fff;
 }
 
@@ -468,7 +448,7 @@ p {
 .btn-outline-white:hover {
   transition: all 0.3s ease;
   background-color: #fff;
-  color: #dcec47;
+  color: #1e88e5;
 }
 
 .btn-light {
@@ -480,7 +460,7 @@ p {
   border-radius: 5rem;
 }
 
-/* .btn-lg {
+.btn-lg {
   padding: 1.2rem 2.5rem;
   font-size: 1.8rem;
 }
@@ -488,4 +468,4 @@ p {
 .btn-md {
   padding: 1rem 1.8rem;
   font-size: 1.7rem;
-} */
+}
