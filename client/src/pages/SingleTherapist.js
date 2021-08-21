@@ -27,7 +27,7 @@ const SingleTherapist = (props) => {
           <div className="col-10 col-sm-8 col-lg-6">
             <img
               src={therapist.photo}
-              className="d-block mx-lg-auto img-fluid"
+              className="d-block mx-lg-auto img-fluid site-footer3--with-clipmask"
               alt={therapist.first_name + " " + therapist.last_name}
               width="400"
               height="300"

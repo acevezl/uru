@@ -392,6 +392,10 @@ p {
   );
 }
 
+.site-footer3--with-clipmask {
+  clip-path: circle(50% at 50% 50%);
+}
+
 .site-footer__quote {
   width: 100%;
   text-align: center;

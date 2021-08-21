@@ -18,26 +18,39 @@ const TherapistList = ({ therapists }) => {
               className="mx-auto mb-2"
               key={therapist._id}
             >
-              <Card.Img variant="top" src={therapist.photo} />
+              <Card.Img
+                variant="top"
+                className="d-block mx-lg-auto site-footer3--with-clipmask img-fluid shadow"
+                src={therapist.photo}
+              />
               <Card.Body>
                 <Card.Title>
-                  {therapist.first_name} {therapist.last_name}
+                  <h2>
+                    {therapist.first_name} {therapist.last_name}
+                  </h2>
                 </Card.Title>
+                <br />
                 <Card.Text>
-                  Specialties:
+                  <h3>Specialties:</h3>
                   <ul>
                     {therapist.specialties.map((specialty) => (
                       <li>{specialty}</li>
                     ))}
                   </ul>
-                  Skills:
+                  <h3>Skills:</h3>
+
                   <ul>
                     {therapist.skills.map((skill) => (
                       <li>{skill}</li>
                     ))}
                   </ul>
                 </Card.Text>
-                <Link className='btn btn-primary' to={`/therapist/${therapist._id}`}>View Profile</Link>
+                <Link
+                  className="btn btn-primary"
+                  to={`/therapist/${therapist._id}`}
+                >
+                  View Profile
+                </Link>
               </Card.Body>
             </Card>
           </Col>
