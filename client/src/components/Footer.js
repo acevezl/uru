@@ -8,10 +8,7 @@ const Footer = () => {
         <p
           className="text-center site-footer__copyright"
           style={{ color: "#116c95" }}
-        >
-          {" "}
-          URU&copy;2021{" "}
-        </p>
+        ></p>
         <p className="text-center">
           <a
             href="https://github.com/acevezl/uru"
@@ -19,7 +16,7 @@ const Footer = () => {
             rel="noopener noreferrer"
             style={{ color: "#116c95" }}
           >
-            <Github></Github>
+            <img className="photofoot" src="images/urus.png" />
           </a>
         </p>
         <ul className="nav justify-content-center p-3 mb-3">
@@ -27,7 +24,8 @@ const Footer = () => {
             "Today you are you, that is truer than true. There is no one alive,
             that is youer than you" ~ Dr. Seuss
           </li>
-        </ul>
+        </ul>{" "}
+        URU&copy;2021{" "}
       </div>
     </footer>
   );

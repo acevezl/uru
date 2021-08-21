@@ -40,6 +40,11 @@ p {
   margin: 0 auto;
 }
 
+/* changed navbar background color */
+.navbar-custom {
+  background-color: #fbffff;
+}
+
 .site-header {
   height: 6rem;
   background-color: transparent;
@@ -360,6 +365,19 @@ p {
     #d8e1e9,
     #ae8da6
   );
+}
+
+/* logo placement on navbar */
+.photo {
+  height: 20px;
+  width: 50px;
+  opacity: 70%;
+}
+
+/* logo placement on footer */
+.photofoot {
+  height: 80px;
+  width: 80px;
 }
 
 /* .site-footer--with-clipmask {

@@ -20,7 +20,7 @@ const TherapistList = ({ therapists }) => {
             >
               <Card.Img
                 variant="top"
-                className="d-block mx-lg-auto site-footer3--with-clipmask img-fluid shadow"
+                className="d-block mx-lg-auto site-footer3--with-clipmask img-fluid shadow-lg"
                 src={therapist.photo}
               />
               <Card.Body>

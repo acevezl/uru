@@ -16,13 +16,16 @@ const AppNavbar = () => {
 
   return (
     <>
-      <nav className="navbar border-bottom mx-3 sticky-top bg-white">
+      <nav className="navbar navbar-custom border-bottom mx-3 sticky-top">
         <a className="navbar-brand" href="/">
-          <FilePersonFill
+          {/* <FilePersonFill
             className="mb-1"
             style={{ color: "#785809" }}
-          ></FilePersonFill>
-          <span style={{ color: "#116c95" }}>URU</span>
+          ></FilePersonFill> */}
+
+          {/* <span style={{ color: "#1b131b" }}> */}
+          <img className="photo" src="images/uru2we.png" />
+          {/* </span> */}
         </a>
 
         <div className="form-inline">
