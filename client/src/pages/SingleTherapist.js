@@ -58,7 +58,7 @@ const SingleTherapist = (props) => {
         <div className="row align-items-md-stretch">
           <div className="col-md-6">
             <div
-              className="p-5 rounded shadow"
+              className="p-5 rounded shadow site-footer2--with-clipmask"
               style={{ background: "#b4ad9b" }}
             >
               <h2>Specialties</h2>
@@ -76,7 +76,7 @@ const SingleTherapist = (props) => {
           </div>
           <div className="col-md-6">
             <div
-              className="p-5 rounded shadow"
+              className="p-5 rounded shadow site-footer2--with-clipmask"
               style={{ background: "#c5c1cb" }}
             >
               <h2>Skills</h2>

@@ -362,7 +362,22 @@ p {
   );
 }
 
-.site-footer--with-clipmask {
+/* .site-footer--with-clipmask {
+  clip-path: polygon(
+    50% 0%,
+    80% 10%,
+    100% 35%,
+    100% 100%,
+    81% 100%,
+    50% 100%,
+    20% 100%,
+    0 100%,
+    0% 35%,
+    20% 10%
+  );
+} */
+
+.site-footer2--with-clipmask {
   clip-path: polygon(
     50% 0%,
     80% 10%,
