@@ -3,7 +3,7 @@ import { Github, Facebook, Instagram } from "react-bootstrap-icons";
 
 const Footer = () => {
   return (
-    <footer className="py-3 my-4 mx-4 site-footer site-footer--with-clipmask">
+    <footer className="py-3 mt-5 site-footer site-footer--with-clipmask">
       <div>
         <p
           className="text-center site-footer__copyright"
@@ -16,7 +16,7 @@ const Footer = () => {
             rel="noopener noreferrer"
             style={{ color: "#116c95" }}
           >
-            <img className="photofoot" src="images/urus.png" />
+            {/* <img className="photofoot" src="images/urus.png" /> */}
           </a>
         </p>
         <ul className="nav justify-content-center p-3 mb-3">
