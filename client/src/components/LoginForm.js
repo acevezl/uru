@@ -9,7 +9,7 @@ import Auth from '../utils/auth';
 const LoginForm = () => {
   const [userFormData, setUserFormData] = useState({ email: '', password: '' });
   const [validated] = useState(false);
-
+  
   const [login, { error }] = useMutation(LOGIN_USER);
   const [showAlert, setShowAlert] = useState(error ? true : false);
 

@@ -31,40 +31,30 @@ const AppNavbar = () => {
         <div className="form-inline">
           {Auth.loggedIn() ? (
             <>
-              <a
+              <button
                 className="btn btn-outline-secondary my-2 my-sm-0 mx-2"
                 type="submit"
                 onClick={Auth.logout}
-                href=""
               >
                 Logout
-              </a>
-              <a
-                className="btn btn-warning my-2 my-sm-0 text-white"
-                type="submit"
-                href=""
-              >
-                Search
-              </a>
+              </button>
             </>
           ) : (
             <>
-              <a
+              <button
                 className="btn btn-outline-secondary my-2 my-sm-0 mx-2"
                 type="submit"
                 onClick={() => setShowLoginModal(true)}
-                href=""
               >
                 Login
-              </a>
-              <a
+              </button>
+              <button
                 className="btn btn-secondary my-2 my-sm-0 text-white"
                 type="submit"
                 onClick={() => setShowSignupModal(true)}
-                href=""
               >
                 Sign Up
-              </a>
+              </button>
             </>
           )}
         </div>
