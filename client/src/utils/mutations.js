@@ -24,3 +24,15 @@ export const ADD_USER = gql`
     }
   }
 `;
+
+export const ADD_FILE = gql `
+  mutation addFile($patient_name: String!, $dob: String!, $allergies: String!, $notes: String!, $therapist_id: String!) {
+    addFile(patient_name: $patient_name, dob: $dob, allergies: $allergies, notes: $notes, therapist_id: $therapist_id) {
+      patient_name
+      dob
+      allergies
+      notes
+      therapist_id
+    }
+  }
+`

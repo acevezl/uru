@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-import { Col, Card } from "react-bootstrap";
+import { Col, Row, Card } from "react-bootstrap";
 
 const TherapistList = ({ therapists }) => {
   if (!therapists.length) {
@@ -9,21 +9,20 @@ const TherapistList = ({ therapists }) => {
   }
 
   return (
-    <>
+    <Row className="m-3">
       {therapists &&
         therapists.map((therapist) => (
-          <Col>
+          <Col className="col-xl-3">
             <Card
-              style={{ width: "18rem" }}
-              className="mx-auto mb-2"
+              className="mb-3"
               key={therapist._id}
             >
               <Card.Img
                 variant="top"
-                className="d-block mx-lg-auto site-footer3--with-clipmask img-fluid shadow-lg"
+                className="site-footer3--with-clipmask"
                 src={therapist.photo}
               />
-              <Card.Body>
+              <Card.Body className="search-results-card">
                 <Card.Title>
                   <h2>
                     {therapist.first_name} {therapist.last_name}
@@ -32,30 +31,32 @@ const TherapistList = ({ therapists }) => {
                 <br />
                 <Card.Text>
                   <h3>Specialties:</h3>
-                  <ul>
+                  <p>
                     {therapist.specialties.map((specialty) => (
-                      <li>{specialty}</li>
+                      <span>{specialty}, </span>
                     ))}
-                  </ul>
+                  </p>
                   <h3>Skills:</h3>
 
-                  <ul>
+                  <p>
                     {therapist.skills.map((skill) => (
-                      <li>{skill}</li>
+                      <span>{skill}, </span>
                     ))}
-                  </ul>
+                  </p>
                 </Card.Text>
+              </Card.Body>
+              <Card.Body>
                 <Link
-                  className="btn btn-primary"
-                  to={`/therapist/${therapist._id}`}
-                >
-                  View Profile
-                </Link>
+                    className="btn btn-primary"
+                    to={`/therapist/${therapist._id}`}
+                  >
+                    View Profile
+                  </Link>
               </Card.Body>
             </Card>
           </Col>
         ))}
-    </>
+    </Row>
   );
 };
 

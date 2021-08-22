@@ -16,16 +16,9 @@ const AppNavbar = () => {
 
   return (
     <>
-      <nav className="navbar navbar-custom border-bottom mx-3 sticky-top">
-        <a className="navbar-brand" href="/">
-          {/* <FilePersonFill
-            className="mb-1"
-            style={{ color: "#785809" }}
-          ></FilePersonFill> */}
-
-          {/* <span style={{ color: "#1b131b" }}> */}
-          <img className="photo" src="images/uru2we.png" />
-          {/* </span> */}
+      <nav className="navbar navbar-custom border-bottom sticky-top">
+        <a className="navbar-brand" href="/">          
+          <img className="photo" src="/images/uru2we.png" />
         </a>
 
         <div className="form-inline">
@@ -73,6 +66,7 @@ const AppNavbar = () => {
             <Modal.Title>Login</Modal.Title>
           </Modal.Header>
           <Modal.Body>
+            <img className="logologin" src="images/b2.jpeg" />
             <Tab.Content>
               <LoginForm handleModalClose={() => setShowLoginModal(false)} />
             </Tab.Content>
@@ -93,6 +87,7 @@ const AppNavbar = () => {
             <Modal.Title>Sign Up</Modal.Title>
           </Modal.Header>
           <Modal.Body>
+            <img className="logosignup" src="images/urus.png" />
             <Tab.Content>
               <SignUpForm handleModalClose={() => setShowSignupModal(false)} />
             </Tab.Content>

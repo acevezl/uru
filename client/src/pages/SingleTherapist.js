@@ -4,7 +4,7 @@ import Auth from "../utils/auth";
 import { useState } from "react";
 import { useParams } from "react-router-dom";
 import { useQuery } from "@apollo/react-hooks";
-import { QUERY_THERAPIST } from "../utils/queries";
+import { QUERY_THERAPIST } from "../utils/queries"; 
 import ReachOutForm from "../components/ReachOutForm";
 
 const SingleTherapist = (props) => {
@@ -18,33 +18,31 @@ const SingleTherapist = (props) => {
 
   const loggedIn = Auth.loggedIn();
 
-  const [formVisibility, setFormVisibility] = useState(false);
-
   if (loading) {
     return <h3>Loading data...</h3>;
   }
 
   return (
     <>
-      <div className="container col-xxl-8 px-4 py-5">
-        <div className="row">
-          <div className="col mx-auto col-sm-6 col-md-8">
+      <div className="container">
+        <div className="row justify-content-center mt-5">
+          <div className="col col-sm-5 col-xl-4 align-middle">
             <img
               src={therapist.photo}
-              className="site-footer3--with-clipmask m-5"
+              className="site-footer3--with-clipmask mb-3"
               alt={therapist.first_name + " " + therapist.last_name}
               loading="lazy"
+              width="200"
             />
-            <h1 className="">
+            <h1>
               {therapist.first_name} {therapist.last_name}
             </h1>
-            <p className="lead">{therapist.bio}</p>
+            <p>{therapist.bio}</p>
           </div>
-
-          <div className="col">
+          <div className="col col-sm-5 col-xl-4">
             <div
               className="p-5 mt-3 rounded shadow"
-              style={{ background: "#b4ad9b" }}
+              style={{ background: "#c8c6c1" }}
             >
               <h2>Specialties</h2>
               <ul>
@@ -55,7 +53,7 @@ const SingleTherapist = (props) => {
             </div>
             <div
               className="p-5 mt-3 rounded shadow"
-              style={{ background: "#c5c1cb" }}
+              style={{ background: "#d1ced8" }}
             >
               <h2>Skills</h2>
               <ul>
@@ -68,26 +66,17 @@ const SingleTherapist = (props) => {
         </div>
         <div className="row">
           <div className="col mt-5">
-
-            {loggedIn && (
-              <>
-                <div className="">
-                  {!formVisibility && (
-                    <button
-                      type="button"
-                      className="btn btn-warning btn-lg px-4 me-md-2 text-white"
-                      onClick={() => setFormVisibility(true)}
-                    >
-                      Establish Care
-                    </button>
-                  )}
-                  {formVisibility && (
-                    <ReachOutForm />
-                  )}
-                </div>
-              </>
-            )}
-          </div>
+              
+              {loggedIn ? (
+                <>
+                  <ReachOutForm therapist={therapist}/>
+                </>
+              ) : (
+                <>
+                  Login to establish care with {therapist.first_name} {therapist.last_name}.
+                </>
+              )}
+            </div>
         </div>
       </div>
     </>

@@ -50,6 +50,12 @@ const therapistSchema = new Schema(
     bio: {
       type: String,
     },
+    files: [
+      {
+        type: Schema.Types.ObjectId,
+        ref: 'File'
+      }
+    ],
   },
   // set this to use virtual below
   {
