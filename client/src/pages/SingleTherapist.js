@@ -1,10 +1,11 @@
 import React from "react";
 
 import Auth from "../utils/auth";
-
+import { useState } from "react";
 import { useParams } from "react-router-dom";
 import { useQuery } from "@apollo/react-hooks";
 import { QUERY_THERAPIST } from "../utils/queries";
+import ReachOutForm from "../components/ReachOutForm";
 
 const SingleTherapist = (props) => {
   const { id: therapistId } = useParams();
@@ -12,9 +13,12 @@ const SingleTherapist = (props) => {
   const { loading, data } = useQuery(QUERY_THERAPIST, {
     variables: { id: therapistId },
   });
+
   const therapist = data?.therapist || {};
 
   const loggedIn = Auth.loggedIn();
+
+  const [ formVisibility, setFormVisibility ] = useState(false);
 
   if (loading) {
     return <h3>Loading data...</h3>;
@@ -23,42 +27,23 @@ const SingleTherapist = (props) => {
   return (
     <>
       <div className="container col-xxl-8 px-4 py-5">
-        <div className="row flex-lg-row align-items-center g-5">
-          <div className="col-10 col-sm-8 col-lg-6">
+        <div className="row">
+          <div className="col mx-auto col-sm-6 col-md-8">
             <img
               src={therapist.photo}
-              className="d-block mx-lg-auto img-fluid site-footer3--with-clipmask"
+              className="site-footer3--with-clipmask m-5"
               alt={therapist.first_name + " " + therapist.last_name}
-              width="400"
-              height="300"
               loading="lazy"
             />
-          </div>
-          <div className="col-lg-5">
-            <h1 className="display-5 fw-bold lh-1 mb-3">
+            <h1 className="">
               {therapist.first_name} {therapist.last_name}
             </h1>
             <p className="lead">{therapist.bio}</p>
-
-            {loggedIn && (
-              <div className="d-grid gap-2 d-md-flex justify-content-md-start">
-                <button
-                  type="button"
-                  className="btn btn-warning btn-lg px-4 me-md-2 text-white"
-                >
-                  Reach Out
-                </button>
-              </div>
-            )}
           </div>
-        </div>
-      </div>
 
-      <div className="container">
-        <div className="row align-items-md-stretch">
-          <div className="col-md-6">
+          <div className="col">
             <div
-              className="p-5 rounded shadow site-footer2--with-clipmask"
+              className="p-5 mt-3 rounded shadow"
               style={{ background: "#b4ad9b" }}
             >
               <h2>Specialties</h2>
@@ -73,10 +58,8 @@ const SingleTherapist = (props) => {
                 ))}
               </ul>
             </div>
-          </div>
-          <div className="col-md-6">
             <div
-              className="p-5 rounded shadow site-footer2--with-clipmask"
+              className="p-5 mt-3 rounded shadow"
               style={{ background: "#c5c1cb" }}
             >
               <h2>Skills</h2>
@@ -92,6 +75,29 @@ const SingleTherapist = (props) => {
               </ul>
             </div>
           </div>
+        </div>
+        <div className="row">
+          <div className="col mt-5">
+              
+              {loggedIn && (
+                <>
+                  <div className="">
+                    { !formVisibility && (
+                    <button
+                      type="button"
+                      className="btn btn-warning btn-lg px-4 me-md-2 text-white"
+                      onClick={() => setFormVisibility(true)}
+                    >
+                      Establish Care
+                    </button>
+                    )}
+                    { formVisibility && (
+                      <ReachOutForm/>
+                    )}
+                  </div>
+                </>
+              )}
+            </div>
         </div>
       </div>
     </>
