@@ -65,9 +65,9 @@ const AppNavbar = () => {
           <Modal.Header closeButton>
             <Modal.Title>Login</Modal.Title>
           </Modal.Header>
-          <Modal.Body>
-            <img className="logologin" src="images/b2.jpeg" />
-            <img className="logologin" src="images/g1.jpeg" />
+          <Modal.Body className="tabcon0">
+            <img className="logologin" src="images/urukids.png" />
+            {/* <img className="logologin" src="images/g1.jpeg" /> */}
             <Tab.Content>
               <LoginForm handleModalClose={() => setShowLoginModal(false)} />
             </Tab.Content>
@@ -87,7 +87,7 @@ const AppNavbar = () => {
           <Modal.Header closeButton>
             <Modal.Title>Sign Up</Modal.Title>
           </Modal.Header>
-          <Modal.Body>
+          <Modal.Body className="tabcon">
             <img className="logosignup" src="images/urus.png" />
             <Tab.Content>
               <SignUpForm handleModalClose={() => setShowSignupModal(false)} />
