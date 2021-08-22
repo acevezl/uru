@@ -374,10 +374,16 @@ p {
   opacity: 70%;
 }
 
-/* logo placement on footer */
-.photofoot {
-  height: 80px;
-  width: 80px;
+/* logo placement on signup */
+.logosignup {
+  height: 200px;
+  width: 190px;
+}
+
+/* logo placement on login */
+.logologin {
+  height: 250px;
+  width: 200px;
 }
 
 /* .site-footer--with-clipmask {
@@ -411,7 +417,7 @@ p {
 }
 
 .site-footer3--with-clipmask {
-  clip-path: circle(50% at 50% 50%);
+  clip-path: circle(45% at 50% 50%);
 }
 
 .site-footer__quote {

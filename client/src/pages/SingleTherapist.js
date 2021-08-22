@@ -4,7 +4,7 @@ import Auth from "../utils/auth";
 import { useState } from "react";
 import { useParams } from "react-router-dom";
 import { useQuery } from "@apollo/react-hooks";
-import { QUERY_THERAPIST } from "../utils/queries";
+import { QUERY_THERAPIST } from "../utils/queries"; 
 import ReachOutForm from "../components/ReachOutForm";
 
 const SingleTherapist = (props) => {
@@ -43,7 +43,7 @@ const SingleTherapist = (props) => {
           <div className="col col-sm-5 col-xl-4">
             <div
               className="p-5 mt-3 rounded shadow"
-              style={{ background: "#b4ad9b" }}
+              style={{ background: "#c8c6c1" }}
             >
               <h2>Specialties</h2>
               <ul>
@@ -54,7 +54,7 @@ const SingleTherapist = (props) => {
             </div>
             <div
               className="p-5 mt-3 rounded shadow"
-              style={{ background: "#c5c1cb" }}
+              style={{ background: "#d1ced8" }}
             >
               <h2>Skills</h2>
               <ul>

@@ -66,6 +66,7 @@ const AppNavbar = () => {
             <Modal.Title>Login</Modal.Title>
           </Modal.Header>
           <Modal.Body>
+            <img className="logologin" src="images/b2.jpeg" />
             <Tab.Content>
               <LoginForm handleModalClose={() => setShowLoginModal(false)} />
             </Tab.Content>
@@ -86,6 +87,7 @@ const AppNavbar = () => {
             <Modal.Title>Sign Up</Modal.Title>
           </Modal.Header>
           <Modal.Body>
+            <img className="logosignup" src="images/urus.png" />
             <Tab.Content>
               <SignUpForm handleModalClose={() => setShowSignupModal(false)} />
             </Tab.Content>
