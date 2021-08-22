@@ -44,7 +44,7 @@ const SingleTherapist = (props) => {
           <div className="col">
             <div
               className="p-5 mt-3 rounded shadow"
-              style={{ background: "#b4ad9b" }}
+              style={{ background: "#c8c6c1" }}
             >
               <h2>Specialties</h2>
               <ul>
@@ -60,7 +60,7 @@ const SingleTherapist = (props) => {
             </div>
             <div
               className="p-5 mt-3 rounded shadow"
-              style={{ background: "#c5c1cb" }}
+              style={{ background: "#d1ced8" }}
             >
               <h2>Skills</h2>
               <ul>
@@ -78,11 +78,10 @@ const SingleTherapist = (props) => {
         </div>
         <div className="row">
           <div className="col mt-5">
-              
-              {loggedIn && (
-                <>
-                  <div className="">
-                    { !formVisibility && (
+            {loggedIn && (
+              <>
+                <div className="">
+                  {!formVisibility && (
                     <button
                       type="button"
                       className="btn btn-warning btn-lg px-4 me-md-2 text-white"
@@ -90,14 +89,12 @@ const SingleTherapist = (props) => {
                     >
                       Establish Care
                     </button>
-                    )}
-                    { formVisibility && (
-                      <ReachOutForm/>
-                    )}
-                  </div>
-                </>
-              )}
-            </div>
+                  )}
+                  {formVisibility && <ReachOutForm />}
+                </div>
+              </>
+            )}
+          </div>
         </div>
       </div>
     </>
