@@ -18,7 +18,7 @@ const SingleTherapist = (props) => {
 
   const loggedIn = Auth.loggedIn();
 
-  const [ formVisibility, setFormVisibility ] = useState(false);
+  const [formVisibility, setFormVisibility] = useState(false);
 
   if (loading) {
     return <h3>Loading data...</h3>;
@@ -48,11 +48,6 @@ const SingleTherapist = (props) => {
             >
               <h2>Specialties</h2>
               <ul>
-                {/* <li>Autism</li>
-                                <li>Group Therapy</li>
-                                <li>Autism</li>
-                                <li>Group Therapy</li> */}
-
                 {therapist.specialties.map((specialty) => (
                   <li>{specialty}</li>
                 ))}
@@ -64,11 +59,6 @@ const SingleTherapist = (props) => {
             >
               <h2>Skills</h2>
               <ul>
-                {/* <li>Guitar</li>
-                                <li>Exercice</li>
-                                <li>Spanish</li>
-                                <li>French</li> */}
-
                 {therapist.skills.map((skill) => (
                   <li>{skill}</li>
                 ))}
@@ -78,11 +68,11 @@ const SingleTherapist = (props) => {
         </div>
         <div className="row">
           <div className="col mt-5">
-              
-              {loggedIn && (
-                <>
-                  <div className="">
-                    { !formVisibility && (
+
+            {loggedIn && (
+              <>
+                <div className="">
+                  {!formVisibility && (
                     <button
                       type="button"
                       className="btn btn-warning btn-lg px-4 me-md-2 text-white"
@@ -90,14 +80,14 @@ const SingleTherapist = (props) => {
                     >
                       Establish Care
                     </button>
-                    )}
-                    { formVisibility && (
-                      <ReachOutForm/>
-                    )}
-                  </div>
-                </>
-              )}
-            </div>
+                  )}
+                  {formVisibility && (
+                    <ReachOutForm />
+                  )}
+                </div>
+              </>
+            )}
+          </div>
         </div>
       </div>
     </>
