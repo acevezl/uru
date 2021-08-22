@@ -99,7 +99,7 @@ const ReachOutForm = (props) => {
                                     <button data-testid="button" className='btn btn-primary' onClick={() => { setFormVisibility(false); setSubmissionSuccess(false); }}>Ok</button>
                                 </>
                             ) : (
-                                    <form id='contat-form' className='mb-3' onSubmit={handleSubmit}>
+                                    <form id='contact-form' className='mb-3' onSubmit={handleSubmit}>
                                         <div className='input-group mb-3'>
                                             <div className='input-group-prepend'>
                                                 <label className='input-group-text' htmlFor='patient_name'>Patient Name:</label>
