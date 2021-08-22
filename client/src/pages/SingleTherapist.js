@@ -27,13 +27,14 @@ const SingleTherapist = (props) => {
   return (
     <>
       <div className="container">
-        <div className="row justify-content-center">
+        <div className="row justify-content-center mt-5">
           <div className="col col-sm-5 col-xl-4 align-middle">
             <img
               src={therapist.photo}
-              className="site-footer3--with-clipmask m-5"
+              className="site-footer3--with-clipmask mb-3"
               alt={therapist.first_name + " " + therapist.last_name}
               loading="lazy"
+              width="200"
             />
             <h1>
               {therapist.first_name} {therapist.last_name}

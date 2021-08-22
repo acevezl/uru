@@ -3,7 +3,7 @@ import { Github, Facebook, Instagram } from "react-bootstrap-icons";
 
 const Footer = () => {
   return (
-    <footer className="py-3 mt-5 site-footer site-footer--with-clipmask">
+    <footer className="py-3 mt-5 site-footer site-footer--with-clipmask fixed-bottom">
       <div>
         <p
           className="text-center site-footer__copyright"

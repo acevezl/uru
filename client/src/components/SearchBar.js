@@ -23,12 +23,17 @@ const SearchBar = () => {
   });
 
   const therapists = data?.therapistcriteria || [];
+  
   // update state based on form input changes
   const handleSubmit = (event) => {
     event.preventDefault();
     setSearchText(event.target.searchText.value);
     console.log(event.target.searchText.value);
   };
+
+  const handleInputChange = (event) => {
+    setSearchText(event.target.value);
+  }
 
   return (
     <>
@@ -50,7 +55,9 @@ const SearchBar = () => {
                 name="searchText"
                 placeholder="Seach for a specialty..."
                 className="p-2"
+                onChange={handleInputChange}
               />
+
             </InputGroup>
             <Button type="submit">
                 Search

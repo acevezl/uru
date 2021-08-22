@@ -12,9 +12,9 @@ const TherapistList = ({ therapists }) => {
     <Row className="m-3">
       {therapists &&
         therapists.map((therapist) => (
-          <Col>
+          <Col className="col-xl-3">
             <Card
-              className="p-5 mb-3"
+              className="mb-3"
               key={therapist._id}
             >
               <Card.Img
@@ -22,7 +22,7 @@ const TherapistList = ({ therapists }) => {
                 className="site-footer3--with-clipmask"
                 src={therapist.photo}
               />
-              <Card.Body>
+              <Card.Body className="search-results-card">
                 <Card.Title>
                   <h2>
                     {therapist.first_name} {therapist.last_name}
@@ -31,25 +31,27 @@ const TherapistList = ({ therapists }) => {
                 <br />
                 <Card.Text>
                   <h3>Specialties:</h3>
-                  <ul>
+                  <p>
                     {therapist.specialties.map((specialty) => (
-                      <li>{specialty}</li>
+                      <span>{specialty}, </span>
                     ))}
-                  </ul>
+                  </p>
                   <h3>Skills:</h3>
 
-                  <ul>
+                  <p>
                     {therapist.skills.map((skill) => (
-                      <li>{skill}</li>
+                      <span>{skill}, </span>
                     ))}
-                  </ul>
+                  </p>
                 </Card.Text>
+              </Card.Body>
+              <Card.Body>
                 <Link
-                  className="btn btn-primary"
-                  to={`/therapist/${therapist._id}`}
-                >
-                  View Profile
-                </Link>
+                    className="btn btn-primary"
+                    to={`/therapist/${therapist._id}`}
+                  >
+                    View Profile
+                  </Link>
               </Card.Body>
             </Card>
           </Col>
