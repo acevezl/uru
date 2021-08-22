@@ -70,9 +70,11 @@ const SignupForm = () => {
           Something went wrong with your signup!
         </Alert>
 
-        
         <Form.Group>
-          <Form.Label htmlFor="username">Username</Form.Label>
+          <Form.Label htmlFor="username">
+            <br />
+            Username
+          </Form.Label>
           <Form.Control
             type="text"
             placeholder="Your username"
