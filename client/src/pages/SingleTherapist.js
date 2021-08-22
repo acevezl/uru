@@ -18,8 +18,6 @@ const SingleTherapist = (props) => {
 
   const loggedIn = Auth.loggedIn();
 
-  const [ formVisibility, setFormVisibility ] = useState(false);
-
   if (loading) {
     return <h3>Loading data...</h3>;
   }
@@ -71,18 +69,7 @@ const SingleTherapist = (props) => {
               
               {loggedIn ? (
                 <>
-                  { !formVisibility && (
-                  <button
-                    type="button"
-                    className="btn btn-warning btn-lg px-4 me-md-2 text-white"
-                    onClick={() => setFormVisibility(true)}
-                  >
-                    Establish Care
-                  </button>
-                  )}
-                  { formVisibility && (
-                    <ReachOutForm/>
-                  )}
+                  <ReachOutForm therapist={therapist}/>
                 </>
               ) : (
                 <>

@@ -10,16 +10,15 @@ const fileSchema = new Schema(
             type: Date,
             required: true,
         },
-        allergies: [{
+        allergies: {
             type: String
-        }],
-        therapist: {
-            type: Schema.Types.ObjectId,
-            ref: 'Therapist',
         },
         notes: {
             type: String,
             required: true,
+        },
+        therapist_id : {
+            type: String
         }
     }
 );

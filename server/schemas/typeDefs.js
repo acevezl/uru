@@ -24,15 +24,16 @@ const typeDefs = gql`
     skills: [String]
     photo: String
     bio: String
+    files: [File]
   }
 
   type File {
     _id: ID
     patient_name: String
     dob: String
-    allergies: [String]
-    therapist: [Therapist]
-    notes: [String]
+    allergies: String
+    notes: String
+    therapist_id: String
   }
 
   type Auth {
@@ -58,6 +59,13 @@ const typeDefs = gql`
       last_name: String!
       phone: String!
     ): Auth
+    addFile(
+      patient_name: String!
+      dob: String!
+      allergies: String!
+      notes: String!
+      therapist_id: String
+    ): File
   }
 `;
 

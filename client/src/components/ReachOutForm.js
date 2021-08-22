@@ -1,20 +1,30 @@
 import React, { useState } from "react";
 import { validateEmail } from "../utils/helpers";
 
+import { useMutation } from "@apollo/react-hooks";
+import { ADD_FILE } from '../utils/mutations';
+
 const ReachOutForm = ( props ) => {
+
+    const therapist = props.therapist;
+
+    const [addFile, { error }] = useMutation(ADD_FILE);
 
     const [ formState, setFormState ] = useState(
         {
-            name: '',
-            email: '',
-            message: '',
-            appointment_date: ''
+            patient_name: '',
+            dob: '',
+            allergies: '',
+            notes: ''
         }
     );
 
     const [ errorMessage, setErrorMessage ] = useState('');
+    const [ submissionSuccess, setSubmissionSuccess ] = useState(false);
+    const [ formVisibility, setFormVisibility ] = useState(false);
 
-    const { name, email, message, appointment_date } = formState;
+
+    const { patient_name, dob, allergies, notes } = formState;
 
     function handleChange(event) {
 
@@ -31,44 +41,84 @@ const ReachOutForm = ( props ) => {
 
     }
 
-    function handleSubmit(event) {
+    const handleSubmit = async event => {
         event.preventDefault();
-        console.log(formState);
+
+        const therapist_id = therapist._id;
+        
+        try {
+            await addFile({
+                variables: { 
+                    patient_name, dob, allergies, notes, therapist_id
+                }
+            });
+            setSubmissionSuccess(true);
+        } catch (e) {
+            console.error(e);
+        }
     }
 
     return(
         <section className='contact'>
-            <h2 className='col-12'>Contact Me</h2>
-            <div className='contactForm mb-5'>
-                <form id='contat-form' className='mb-3' onSubmit={handleSubmit}>
-                    <div className='form-floating mb-3'>
-                        <input className='form-control' type='text' id='name' name='name' defaultValue={name} onBlur={handleChange}/>
-                        <label htmlFor='name'>Name:</label>
-                    </div>
-                    <div className='form-floating mb-3'>
-                        <input className='form-control' type="email" id='email' name="email" defaultValue={email} onBlur={handleChange}/>
-                        <label htmlFor="email">Email:</label>
-                    </div>
-                    <div className='form-floating mb-3'>
-                        <textarea className='form-control' name="message" id='message' defaultValue={message} onBlur={handleChange}/>
-                        <label htmlFor="message">Message:</label>
-                    </div>
-                    <div className='form-floating mb-3'>
-                        <textarea className='form-control' name="appointment_date" id='appointment_date' defaultValue={appointment_date} onBlur={handleChange}/>
-                        <label htmlFor="appointment_date">Appointment Date:</label>
-                    </div>
-                    {
-                        errorMessage && (
-                            <div className='alert alert-danger'>
-                                {errorMessage}
+            { !formVisibility ? (
+                <button type="button" className="btn btn-warning btn-lg px-4 me-md-2 text-white" onClick={() => setFormVisibility(true)}>
+                Establish Care
+                </button>
+                ):(
+                <>
+                    <h2 className='col-12'>Establish Care with {therapist.first_name} {therapist.last_name}</h2>
+                    <div className='contactForm mb-5'>
+                        { submissionSuccess ? (
+                        <>
+                            <h3>Thank you for your interest.</h3>
+                            <p>We have sent your Care request to {therapist.first_name}. They will respond to your message within the next 24-48 hours.</p>
+                            <button data-testid="button" className='btn btn-primary' onClick={() => {setFormVisibility(false);setSubmissionSuccess(false); }}>Ok</button>
+                        </>
+                        ):(
+                        <form id='contat-form' className='mb-3' onSubmit={handleSubmit}>
+                            <div className='input-group mb-3'>
+                                <div className='input-group-prepend'>
+                                    <label className='input-group-text' htmlFor='patient_name'>Patient Name:</label>
+                                </div>
+                                <input className='form-control' type='text' id='patient_name' name='patient_name' defaultValue={patient_name} onBlur={handleChange}/>
                             </div>
-                        )
-                    }
-                    <button data-testid="button" className='btn btn-secondary' type="submit">Submit</button>
-                </form>
-            </div>
+                            <div className='input-group mb-3'>
+                                <div className='input-group-prepend'>
+                                    <label className='input-group-text' htmlFor='dob'>Date of birth:</label>
+                                </div>
+                                <input className='form-control' type='text' id='dob' name='dob' defaultValue={dob} onBlur={handleChange}/>
+                            </div>
+                            <div className='input-group mb-3'>
+                                <div className='input-group-prepend'>
+                                    <label className='input-group-text' htmlFor='allergies'>Allergies:</label>
+                                </div>
+                                <input className='form-control' type='text' id='allergies' name='allergies' defaultValue={allergies} onBlur={handleChange}/>
+                            </div>
+                            <div className='input-group mb-3'>
+                                <div className='input-group-prepend'>
+                                    <label className='input-group-text' htmlFor='notes'>How can {therapist.first_name} help you? </label>
+                                </div>
+                                <textarea className='form-control' rows='5' type='text' id='notes' name='notes' defaultValue={notes} onBlur={handleChange}/>
+                            </div>
+                            {
+                                errorMessage && (
+                                    <div className='alert alert-danger'>
+                                        {errorMessage}
+                                    </div>
+                                )
+                            }
+                            <button data-testid="button" className='btn btn-primary mr-3' type="submit">Submit</button>
+                            <button type="button" className="btn btn-secondary" onClick={() => setFormVisibility(false)}>Cancel</button> 
+                        </form>
+                        )}
+                        
+                    </div>  
+                </>
+            )}
+            
         </section>
     );
 }
 
 export default ReachOutForm;
+
