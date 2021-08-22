@@ -517,6 +517,9 @@ p {
   border-radius: 5rem;
 }
 
+.form-control {
+  font-size: 14px!important;
+}
 /* .btn-lg {
   padding: 1.2rem 2.5rem;
   font-size: 1.8rem;

@@ -13,6 +13,8 @@ import { useQuery } from "@apollo/react-hooks";
 import { QUERY_THERAPISTS_CRITERIA } from "../utils/queries";
 import TherapistList from "../components/TherapistList";
 
+import Auth from "../utils/auth";
+
 const SearchBar = () => {
   const [searchText, setSearchText] = useState("");
 
@@ -30,30 +32,31 @@ const SearchBar = () => {
 
   return (
     <>
-      <Row className="text-center my-4 col-12">
-        <Col>
-          <h1 style={{ color: "#116c95" }}>
-            Let us help you find a Therapist for your child!
-          </h1>
-        </Col>
-      </Row>
-      <Row className="text-center my-4 col-12">
-        <Form onSubmit={handleSubmit} className="col-12">
-          <InputGroup
-            className="mb-3 mx-auto"
-            style={{ width: "75%" }}
-            type="search"
-          >
-            <FormControl
-              name="searchText"
-              placeholder="Seach for a specialty..."
-              className="mx-2"
-            />
-            <Button type="submit" variant="outline-warning">
-              Search
-            </Button>{" "}
-          </InputGroup>
-        </Form>
+      <Row className="justify-content-center">
+        <Row className="m-5 col-10 col-sm-8">
+          <Col>
+            <h1 style={{ color: "#116c95" }}>
+              Let us help you find a Therapist for your child.
+            </h1>
+          </Col>
+        </Row>
+        <Row className="col-sm-8">
+          <Form onSubmit={handleSubmit} className="col-12">
+            <InputGroup
+              type="search"
+              className="mb-3"
+            >
+              <FormControl
+                name="searchText"
+                placeholder="Seach for a specialty..."
+                className="p-2"
+              />
+            </InputGroup>
+            <Button type="submit">
+                Search
+            </Button>
+          </Form>
+        </Row>
       </Row>
       {/* therapist cards, need to be conditionally rendered */}
       <Row>

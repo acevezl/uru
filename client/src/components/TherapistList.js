@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-import { Col, Card } from "react-bootstrap";
+import { Col, Row, Card } from "react-bootstrap";
 
 const TherapistList = ({ therapists }) => {
   if (!therapists.length) {
@@ -9,18 +9,17 @@ const TherapistList = ({ therapists }) => {
   }
 
   return (
-    <>
+    <Row className="m-3">
       {therapists &&
         therapists.map((therapist) => (
           <Col>
             <Card
-              style={{ width: "18rem" }}
-              className="mx-auto mb-2"
+              className="p-5 mb-3"
               key={therapist._id}
             >
               <Card.Img
                 variant="top"
-                className="d-block mx-lg-auto site-footer3--with-clipmask img-fluid shadow-lg"
+                className="site-footer3--with-clipmask"
                 src={therapist.photo}
               />
               <Card.Body>
@@ -55,7 +54,7 @@ const TherapistList = ({ therapists }) => {
             </Card>
           </Col>
         ))}
-    </>
+    </Row>
   );
 };
 

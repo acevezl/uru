@@ -26,33 +26,27 @@ const SingleTherapist = (props) => {
 
   return (
     <>
-      <div className="container col-xxl-8 px-4 py-5">
-        <div className="row">
-          <div className="col mx-auto col-sm-6 col-md-8">
+      <div className="container">
+        <div className="row justify-content-center">
+          <div className="col col-sm-5 col-xl-4 align-middle">
             <img
               src={therapist.photo}
               className="site-footer3--with-clipmask m-5"
               alt={therapist.first_name + " " + therapist.last_name}
               loading="lazy"
             />
-            <h1 className="">
+            <h1>
               {therapist.first_name} {therapist.last_name}
             </h1>
-            <p className="lead">{therapist.bio}</p>
+            <p>{therapist.bio}</p>
           </div>
-
-          <div className="col">
+          <div className="col col-sm-5 col-xl-4">
             <div
               className="p-5 mt-3 rounded shadow"
               style={{ background: "#b4ad9b" }}
             >
               <h2>Specialties</h2>
               <ul>
-                {/* <li>Autism</li>
-                                <li>Group Therapy</li>
-                                <li>Autism</li>
-                                <li>Group Therapy</li> */}
-
                 {therapist.specialties.map((specialty) => (
                   <li>{specialty}</li>
                 ))}
@@ -64,11 +58,6 @@ const SingleTherapist = (props) => {
             >
               <h2>Skills</h2>
               <ul>
-                {/* <li>Guitar</li>
-                                <li>Exercice</li>
-                                <li>Spanish</li>
-                                <li>French</li> */}
-
                 {therapist.skills.map((skill) => (
                   <li>{skill}</li>
                 ))}
@@ -79,22 +68,24 @@ const SingleTherapist = (props) => {
         <div className="row">
           <div className="col mt-5">
               
-              {loggedIn && (
+              {loggedIn ? (
                 <>
-                  <div className="">
-                    { !formVisibility && (
-                    <button
-                      type="button"
-                      className="btn btn-warning btn-lg px-4 me-md-2 text-white"
-                      onClick={() => setFormVisibility(true)}
-                    >
-                      Establish Care
-                    </button>
-                    )}
-                    { formVisibility && (
-                      <ReachOutForm/>
-                    )}
-                  </div>
+                  { !formVisibility && (
+                  <button
+                    type="button"
+                    className="btn btn-warning btn-lg px-4 me-md-2 text-white"
+                    onClick={() => setFormVisibility(true)}
+                  >
+                    Establish Care
+                  </button>
+                  )}
+                  { formVisibility && (
+                    <ReachOutForm/>
+                  )}
+                </>
+              ) : (
+                <>
+                  Login to establish care with {therapist.first_name} {therapist.last_name}.
                 </>
               )}
             </div>
