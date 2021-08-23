@@ -367,6 +367,37 @@ p {
   );
 }
 
+.tabcon {
+  padding: 10rem 0 3rem 0;
+  background-image: linear-gradient(
+    120deg,
+    #c58d05,
+    #d8e1e9,
+    #ffffff,
+    #ffffff,
+    #ffffff,
+    #d8e1e9,
+    #ae8da6
+  );
+}
+
+.tabcon0 {
+  padding: 10rem 0 3rem 0;
+  background-image: linear-gradient(
+    120deg,
+    #c58d05,
+    #ffffff,
+    #ffffff,
+    #ffffff,
+    #ffffff,
+    #ffffff,
+    #ffffff,
+    #ffffff,
+    #d8e1e9,
+    #ae8da6
+  );
+}
+
 /* logo placement on navbar */
 .photo {
   height: 20px;
@@ -376,14 +407,16 @@ p {
 
 /* logo placement on signup */
 .logosignup {
-  height: 200px;
-  width: 190px;
+  height: 170px;
+  width: 130px;
+
+  border: none;
 }
 
-/* logo placement on login */
+/* image placement on login */
 .logologin {
-  height: 250px;
-  width: 200px;
+  height: 300px;
+  width: 350px;
 }
 
 /* .site-footer--with-clipmask {
@@ -524,7 +557,7 @@ p {
 }
 
 .form-control {
-  font-size: 14px!important;
+  font-size: 14px !important;
 }
 
 .search-results-card {

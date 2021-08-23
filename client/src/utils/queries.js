@@ -9,19 +9,11 @@ export const QUERY_ME = gql`
       first_name
       last_name
       phone
-      fileCount
       files {
         patient_name
         dob
         allergies
         notes
-        therapist {
-          first_name
-          last_name
-          phone
-          specialties
-          skills
-        }
       }
     }
   }
