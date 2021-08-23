@@ -33,7 +33,6 @@ const resolvers = {
         orCriteria.push({specialties: { "$regex": word, "$options": "i" }});
         orCriteria.push({skills: { "$regex": word, "$options": "i" }});
       });
-      console.log(orCriteria);
       const therapists = await Therapist.find({
         $or: orCriteria 
       }).select("-__v -password");

@@ -12,9 +12,9 @@ const TherapistList = ({ therapists }) => {
     <Row className="m-3">
       {therapists &&
         therapists.map((therapist) => (
-          <Col className="col-xl-3">
+          <Col className="col-xl-3" key={therapist._id+'card'}>
             <Card
-              className="mb-3"
+              className="mb-3 therapist-card"
               key={therapist._id}
             >
               <Card.Img
@@ -22,7 +22,7 @@ const TherapistList = ({ therapists }) => {
                 className="site-footer3--with-clipmask"
                 src={therapist.photo}
               />
-              <Card.Body className="search-results-card">
+              <Card.Body>
                 <Card.Title>
                   <h2>
                     {therapist.first_name} {therapist.last_name}
@@ -30,19 +30,15 @@ const TherapistList = ({ therapists }) => {
                 </Card.Title>
                 <br />
                 <Card.Text>
-                  <h3>Specialties:</h3>
-                  <p>
-                    {therapist.specialties.map((specialty) => (
-                      <span>{specialty}, </span>
-                    ))}
-                  </p>
-                  <h3>Skills:</h3>
-
-                  <p>
-                    {therapist.skills.map((skill) => (
-                      <span>{skill}, </span>
-                    ))}
-                  </p>
+                  <span className='h3'>Specialties: </span>
+                  {therapist.specialties.map((specialty, key) => (
+                    <span key={therapist._id+'specialty'+key}>{specialty}{key<therapist.specialties.length-1 ? ',' : ''} </span>
+                  ))}
+                  <br></br>
+                  <span className='h3'>Skills: </span>
+                  {therapist.skills.map((skill, key) => (
+                    <span key={therapist._id+'skill'+key}>{skill}{key<therapist.skills.length-1 ? ',' : ''} </span>
+                  ))}
                 </Card.Text>
               </Card.Body>
               <Card.Body>
