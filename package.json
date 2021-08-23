@@ -22,7 +22,6 @@
   "dependencies": {
     "@apollo/react-hooks": "^4.0.0",
     "apollo-server-express": "^3.1.2",
-    "emailjs-com": "^3.2.0",
     "express": "^4.17.1",
     "faker": "^5.5.3",
     "if-env": "^1.0.4",

@@ -10,10 +10,12 @@ export const QUERY_ME = gql`
       last_name
       phone
       files {
+        _id
         patient_name
         dob
         allergies
         notes
+        therapist_id
       }
     }
   }
@@ -68,4 +70,17 @@ export const QUERY_THERAPISTS = gql`
       bio
     }
   }
+`;
+
+export const QUERY_FILE = gql`
+query file($id: ID!) {
+  file(_id: $id) {
+    _id
+    patient_name
+    dob
+    allergies
+    notes
+    therapist_id
+  }
+}
 `;

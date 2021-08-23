@@ -14,7 +14,6 @@ const resolvers = {
       throw new AuthenticationError("Not logged in");
     },
     user: async (parent, args, context) => {
-      console.log(context.user);
       return await User.findOne({ _id: context.user._id })
         .select("-__v -password")
         .populate("files");
@@ -40,6 +39,10 @@ const resolvers = {
       }).select("-__v -password");
       return therapists;
     },
+    file: async (parent,{ _id }) => {
+      const file = await File.findOne({ _id });
+      return file;
+    }
   },
 
   Mutation: {

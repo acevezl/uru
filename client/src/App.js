@@ -9,6 +9,8 @@ import ApolloClient from "apollo-boost";
 import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
 import Home from "./pages/Home";
 import SingleTherapist from "./pages/SingleTherapist";
+import Dashboard from "./pages/Dashboard";
+import SingleFile from "./pages/SingleFile";
 // import "./sass/main.scss";
 
 const client = new ApolloClient({
@@ -33,6 +35,8 @@ function App() {
           <Switch>
             <Route exact path="/" component={Home} />
             <Route exact path="/therapist/:id" component={SingleTherapist} />
+            <Route exact path="/dashboard" component={Dashboard} />
+            <Route exact path="/file/:id" component={SingleFile} />
             <Route
               render={() => (
                 <h1 className="display-2">

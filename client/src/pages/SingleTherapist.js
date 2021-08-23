@@ -1,7 +1,6 @@
 import React from "react";
 
 import Auth from "../utils/auth";
-import { useState } from "react";
 import { useParams } from "react-router-dom";
 import { useQuery } from "@apollo/react-hooks";
 import { QUERY_THERAPIST } from "../utils/queries"; 

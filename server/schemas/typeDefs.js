@@ -47,6 +47,7 @@ const typeDefs = gql`
     therapist(_id: ID!): Therapist
     therapists:[Therapist]
     therapistcriteria(criteria: String):[Therapist]
+    file(_id: ID!): File
   }
 
   type Mutation {
