@@ -38,6 +38,7 @@ const ReachOutForm = ( props ) => {
         if (!errorMessage) {
             setFormState({ ...formState, [ event.target.name ] : event.target.value })
         }
+        <button data-testid="button" className='btn btn-secondary'>Return to search</button>
 
     }
 
