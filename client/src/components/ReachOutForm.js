@@ -80,6 +80,21 @@ const ReachOutForm = (props) => {
         }
     }
 
+    if (loading) {
+        return <p>Loading...</p>
+    }
+
+    if (error) {
+        return (
+        <>
+        <h4>Something went wrong while sending your request.</h4>
+        <p>
+            Please try refreshing this page and try again. If the problem persists, please contact us at
+            <a href='mailto:admin@uru.com'>admin@uru.com</a>. Thank you.
+        </p>
+        </>
+        )
+    }
 
     return (
         <section className='contact'>

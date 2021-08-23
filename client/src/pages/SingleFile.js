@@ -1,9 +1,12 @@
 import React from "react";
 
 import Auth from "../utils/auth";
+
 import { useParams } from "react-router-dom";
 import { useQuery } from "@apollo/react-hooks";
 import { QUERY_FILE, QUERY_THERAPIST } from "../utils/queries"; 
+
+import  { Redirect } from 'react-router-dom';
 
 const SingleFile = (props) => {
 
@@ -21,6 +24,11 @@ const SingleFile = (props) => {
 
     const therapist = therapistData?.therapist || {};
 
+    const loggedIn = Auth.loggedIn();
+    if (!loggedIn) {
+        return <Redirect to="/" />
+    }
+
     if (loadingFile) {
         return <p>Loading file...</p>
     }
@@ -28,8 +36,6 @@ const SingleFile = (props) => {
     if (loadingTherapist) {
         return <p>Loading therapist...</p>
     }
-
-    console.log(therapist);
 
     return (
         <>

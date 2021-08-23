@@ -13,8 +13,6 @@ import { useQuery } from "@apollo/react-hooks";
 import { QUERY_THERAPISTS_CRITERIA } from "../utils/queries";
 import TherapistList from "../components/TherapistList";
 
-import Auth from "../utils/auth";
-
 const SearchBar = () => {
   const [searchText, setSearchText] = useState("");
 

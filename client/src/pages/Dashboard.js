@@ -1,18 +1,13 @@
 
-import React, { useState, useParams } from "react";
+import React from "react";
 import {
-  Row,
-  Container,
-  Col,
-  Form,
-  InputGroup,
-  FormControl,
-  Button,
+  Container
 } from "react-bootstrap";
 import  { Redirect } from 'react-router-dom';
 
 import Auth from "../utils/auth";
-import SearchBar from "../components/SearchBar";
+// We may decide to add the Search Bar to the dashboard
+// import SearchBar from "../components/SearchBar";
 import MyFiles from "../components/MyFiles";
 
 const Dashboard = () => {
