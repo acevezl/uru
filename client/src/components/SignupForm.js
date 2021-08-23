@@ -59,7 +59,12 @@ const SignupForm = () => {
   return (
     <>
       {/* This is needed for the validation functionality above */}
-      <Form noValidate validated={validated} onSubmit={handleFormSubmit}>
+      <Form
+        className="p-5"
+        noValidate
+        validated={validated}
+        onSubmit={handleFormSubmit}
+      >
         {/* show alert if server response is bad */}
         <Alert
           dismissible
@@ -70,11 +75,14 @@ const SignupForm = () => {
           Something went wrong with your signup!
         </Alert>
 
-        <Form.Group>
-          <Form.Label htmlFor="username">
-            <br />
-            Username
-          </Form.Label>
+        <Form.Group className="input-group">
+          <div className="input-group-prepend">
+            <Form.Label className="input-group-text" htmlFor="username">
+              <br />
+              Username
+            </Form.Label>
+          </div>
+
           <Form.Control
             type="text"
             placeholder="Your username"
@@ -88,8 +96,10 @@ const SignupForm = () => {
           </Form.Control.Feedback>
         </Form.Group>
 
-        <Form.Group>
-          <Form.Label htmlFor="first_name">First Name</Form.Label>
+        <Form.Group className="input-group">
+          <Form.Label className="input-group-text" htmlFor="first_name">
+            First Name
+          </Form.Label>
           <Form.Control
             type="text"
             placeholder="Your first name"
@@ -103,8 +113,10 @@ const SignupForm = () => {
           </Form.Control.Feedback>
         </Form.Group>
 
-        <Form.Group>
-          <Form.Label htmlFor="last_name">Last Name</Form.Label>
+        <Form.Group className="input-group">
+          <Form.Label className="input-group-text" htmlFor="last_name">
+            Last Name
+          </Form.Label>
           <Form.Control
             type="text"
             placeholder="Your last name"
@@ -118,8 +130,10 @@ const SignupForm = () => {
           </Form.Control.Feedback>
         </Form.Group>
 
-        <Form.Group>
-          <Form.Label htmlFor="phone">Phone Number</Form.Label>
+        <Form.Group className="input-group">
+          <Form.Label className="input-group-text" htmlFor="phone">
+            Phone Number
+          </Form.Label>
           <Form.Control
             type="text"
             placeholder="Your phone number"
@@ -133,8 +147,10 @@ const SignupForm = () => {
           </Form.Control.Feedback>
         </Form.Group>
 
-        <Form.Group>
-          <Form.Label htmlFor="email">Email</Form.Label>
+        <Form.Group className="input-group">
+          <Form.Label className="input-group-text" htmlFor="email">
+            Email
+          </Form.Label>
           <Form.Control
             type="email"
             placeholder="Your email address"
@@ -148,8 +164,10 @@ const SignupForm = () => {
           </Form.Control.Feedback>
         </Form.Group>
 
-        <Form.Group>
-          <Form.Label htmlFor="password">Password</Form.Label>
+        <Form.Group className="input-group">
+          <Form.Label className="input-group-text" htmlFor="password">
+            Password
+          </Form.Label>
           <Form.Control
             type="password"
             placeholder="Your password"
@@ -171,7 +189,7 @@ const SignupForm = () => {
             )
           }
           type="submit"
-          variant="success"
+          variant="primary"
         >
           Submit
         </Button>

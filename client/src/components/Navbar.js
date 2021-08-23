@@ -24,7 +24,10 @@ const AppNavbar = () => {
         <div className="form-inline">
           {Auth.loggedIn() ? (
             <>
-              <a className="btn btn-outline-secondary my-2 my-sm-0 mx-2" href="/dashboard">
+              <a
+                className="btn btn-outline-secondary my-2 my-sm-0 mx-2"
+                href="/dashboard"
+              >
                 Dashboard
               </a>
               <button
@@ -88,7 +91,11 @@ const AppNavbar = () => {
         {/* tab container to do either signup or login component */}
         <Tab.Container>
           <Modal.Header closeButton>
-            <Modal.Title>Sign Up</Modal.Title>
+            <Modal.Title
+              style={{ justifyContent: "center", }}
+            >
+              Sign Up
+            </Modal.Title>
           </Modal.Header>
           <Modal.Body className="tabcon">
             <img className="logosignup" src="images/urus.png" />

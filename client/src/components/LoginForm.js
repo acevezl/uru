@@ -82,8 +82,10 @@ const LoginForm = () => {
           </Form.Control.Feedback>
         </Form.Group>
 
-        <Form.Group>
-          <Form.Label htmlFor="password">Password</Form.Label>
+        <Form.Group className="input-group">
+          <Form.Label className="input-group-text" htmlFor="password">
+            Password
+          </Form.Label>
           <Form.Control
             type="password"
             placeholder="Your password"
@@ -99,7 +101,7 @@ const LoginForm = () => {
         <Button
           disabled={!(userFormData.email && userFormData.password)}
           type="submit"
-          variant="success"
+          variant="primary"
         >
           Submit
         </Button>
