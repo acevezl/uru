@@ -1,5 +1,5 @@
 const { AuthenticationError } = require("apollo-server-express");
-const { User, Therapist, File } = require("../models");
+const { User, Therapist, File, Appointment } = require("../models");
 const { signToken } = require("../utils/auth");
 
 const resolvers = {
@@ -39,7 +39,8 @@ const resolvers = {
       return therapists;
     },
     file: async (parent,{ _id }) => {
-      const file = await File.findOne({ _id });
+      const file = await File.findOne({ _id })
+        .populate("appointments");
       return file;
     }
   },
@@ -68,7 +69,6 @@ const resolvers = {
       return { token, user };
     },
     addFile: async (parent, args, context) => {
-      console.log(args);
       if (context.user) {
         const file = await File.create({...args});
 
@@ -85,6 +85,22 @@ const resolvers = {
         )
 
         return file;
+      }
+
+      throw new AuthenticationError('You need to be logged in!');
+
+    },
+    addAppointment: async (parent, args, context) => {
+      if (context.user) {
+        const appointment = await Appointment.create({...args});
+
+        await File.findByIdAndUpdate(
+          { _id: args.file_id},
+          { $push: { appointments: appointment._id }},
+          { new: true}
+        )
+
+        return appointment;
       }
 
       throw new AuthenticationError('You need to be logged in!');

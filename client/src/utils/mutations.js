@@ -36,3 +36,14 @@ export const ADD_FILE = gql `
     }
   }
 `
+
+export const ADD_APPOINTMENT = gql `
+  mutation addAppointment($date: String!, $time: String!, $notes: String!, $file_id: String!) {
+    addAppointment(date: $date, time: $time, notes: $notes, file_id: $file_id) {
+      date
+      time
+      notes
+      file_id
+    }
+  }
+`

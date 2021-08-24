@@ -81,6 +81,11 @@ query file($id: ID!) {
     allergies
     notes
     therapist_id
+    appointments {
+      date
+      time
+      notes
+    }
   }
 }
 `;

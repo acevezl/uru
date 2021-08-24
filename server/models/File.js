@@ -19,7 +19,13 @@ const fileSchema = new Schema(
         },
         therapist_id : {
             type: String
-        }
+        },
+        appointments: [
+            {
+              type: Schema.Types.ObjectId,
+              ref: 'Appointment'
+            }
+        ],
     }
 );
 

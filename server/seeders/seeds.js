@@ -54,7 +54,7 @@ db.once("open", async () => {
     "Board games",
   ];
 
-  for (let i = 0; i < 20; i++) {
+  for (let i = 0; i < 200; i++) {
     const username = faker.internet.userName();
     const email = faker.internet.email(username);
     const password = "Test123$";
