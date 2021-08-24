@@ -72,7 +72,7 @@ const AppointmentForm = (props) => {
                     date, time, notes, file_id
                 }
             });
-            //sendEmail();
+            sendEmail();
             setSubmissionSuccess(true);
         } catch (e) {
             console.error(e);

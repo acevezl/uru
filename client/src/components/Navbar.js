@@ -24,6 +24,12 @@ const AppNavbar = () => {
             <>
               <a
                 className="btn btn-outline-secondary my-2 my-sm-0 mx-2"
+                href="/="
+              >
+                Home
+              </a>
+              <a
+                className="btn btn-outline-secondary my-2 my-sm-0 mx-2"
                 href="/dashboard"
               >
                 Dashboard
