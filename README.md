@@ -4,7 +4,7 @@ Today you are you, that is truer than true. There is no one alive, that is youer
 ## Description:
 We have made an economic and social empowerment app that builds a connection between child and behavior therapist.
 
-##Motivation for development?
+## Motivation for development
 
 Create an application that builds long lasting connection between a behavior therapist and your child.
 
@@ -32,7 +32,6 @@ This MERN app runs in the browser and features:
 -Deployed with Heroku
 
 
-
 ## Links: 
 
 Github Repo: https://github.com/acevezl/uru
@@ -52,4 +51,4 @@ URU: https://uru.herokuapp.com/
 ### License
 MIT License is used for this project. Please refer to the license.txt file for more details.
 
-### Badges
+
