@@ -32,6 +32,9 @@ const resolvers = {
       criteriaArray.forEach((word) => {
         orCriteria.push({ specialties: { $regex: word, $options: "i" } });
         orCriteria.push({ skills: { $regex: word, $options: "i" } });
+        orCriteria.push({ first_name: { $regex: word, $options: "i" } });
+        orCriteria.push({ last_name: { $regex: word, $options: "i" } });
+        orCriteria.push({ username: { $regex: word, $options: "i" } });
       });
       const therapists = await Therapist.find({
         $or: orCriteria,
