@@ -79,6 +79,10 @@ const AppointmentForm = (props) => {
         }
     }
 
+    function refreshPage() {
+        window.location.reload(false);
+    }
+
     if (loading) {
         return <p>Loading...</p>
     }
@@ -109,7 +113,7 @@ const AppointmentForm = (props) => {
                                 <>
                                     <h3>Thank you for your appointment request.</h3>
                                     <p>We have sent your appointment to {therapist.first_name}. They will respond to your message within the next 24-48 hours.</p>
-                                    <button data-testid="button" className='btn btn-primary' onClick={() => { setFormVisibility(false); setSubmissionSuccess(false); }}>Ok</button>
+                                    <button data-testid="button" className='btn btn-primary' onClick={() => { refreshPage() }}>Ok</button>
                                 </>
                             ) : (
                                     <form id='contact-form' className='mb-3' onSubmit={handleSubmit}>

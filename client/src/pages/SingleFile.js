@@ -24,6 +24,7 @@ const SingleFile = (props) => {
 
     const file = fileData?.file || {};
     
+    
     const { loadingTherapist, data: therapistData } = useQuery(QUERY_THERAPIST, {
         variables: { id: file.therapist_id },
     });
@@ -73,38 +74,50 @@ const SingleFile = (props) => {
                     </div>
                 </div>  
                  
-                {file.appointments? ( 
+                
                 <div className="row justify-content-center mt-5">
                     <Row className="col-12 justify-content-center">
                         <h2>Your appointments</h2>
                     </Row>
-                    <Row className="col-12 justify-content-center">
-                    { file.appointments.map( (appointment, key) => (
-                        <Col className="col-xl-3" key={appointment._id+'appt'}>
-                            <Card
-                                className="mb-3"
-                            >
-                                <Card.Body className="search-results-card">
-                                    <Card.Title>
-                                        <h2>
-                                        Date: {appointment.date}
-                                        </h2>
-                                    </Card.Title>
-                                    <Card.Text>
-                                        <span>Time: {appointment.time} </span><br/>
-                                        <span>Notes: {appointment.notes}</span>
-                                    </Card.Text>
-                                </Card.Body>
-                            </Card>
-                        </Col>
-                    ))}
-                    </Row>
+                    {file.appointments !== undefined ? ( 
+                        <Row className="col-12 justify-content-center">
+                        { file.appointments.length ? (
+                            <>
+                            { file.appointments.map( (appointment, key) => (
+                                <Col className="col-xl-3" key={appointment._id+'appt'}>
+                                    <Card
+                                        className="mb-3"
+                                    >
+                                        <Card.Body className="search-results-card">
+                                            <Card.Title>
+                                                <h2>
+                                                Date: {appointment.date}
+                                                </h2>
+                                            </Card.Title>
+                                            <Card.Text>
+                                                <span>Time: {appointment.time} </span><br/>
+                                                <span>Notes: {appointment.notes}</span>
+                                            </Card.Text>
+                                        </Card.Body>
+                                    </Card>
+                                </Col>
+                            ))}
+                            </>
+                        ):(
+                        <div className="row justify-content-center mt-5">
+                            <h3>You don't have any upcoming appointments</h3>
+                        </div>
+                        )}
+                        </Row>
+                    ):(
+                    <div className="row justify-content-center mt-5">
+                        <h3>You don't have any upcoming appointments</h3>
+                    </div>
+                    )} 
                 </div>
-                ):(
-                <div className="row justify-content-center mt-5">
-                    <h3>You don't have any upcoming appointments</h3>
-                </div>
-                )} 
+                
+                
+               
 
                 <div className="row justify-content-center mt-5">
                     <AppointmentForm file={file} therapist={therapist}></AppointmentForm>
