@@ -78,11 +78,9 @@ const SignupForm = () => {
         <Form.Group className="input-group">
           <div className="input-group-prepend">
             <Form.Label className="input-group-text" htmlFor="username">
-              <br />
               Username
             </Form.Label>
           </div>
-
           <Form.Control
             type="text"
             placeholder="Your username"
@@ -97,9 +95,10 @@ const SignupForm = () => {
         </Form.Group>
 
         <Form.Group className="input-group">
-          <Form.Label className="input-group-text" htmlFor="first_name">
+          <div className="input-group-prepend"><Form.Label className="input-group-text" htmlFor="first_name">
             First Name
-          </Form.Label>
+          </Form.Label></div>
+
           <Form.Control
             type="text"
             placeholder="Your first name"
@@ -114,9 +113,9 @@ const SignupForm = () => {
         </Form.Group>
 
         <Form.Group className="input-group">
-          <Form.Label className="input-group-text" htmlFor="last_name">
+          <div className="input-group-prepend"><Form.Label className="input-group-text" htmlFor="last_name">
             Last Name
-          </Form.Label>
+          </Form.Label></div>
           <Form.Control
             type="text"
             placeholder="Your last name"
@@ -131,9 +130,9 @@ const SignupForm = () => {
         </Form.Group>
 
         <Form.Group className="input-group">
-          <Form.Label className="input-group-text" htmlFor="phone">
+          <div className="input-group-prepend"><Form.Label className="input-group-text" htmlFor="phone">
             Phone Number
-          </Form.Label>
+          </Form.Label></div>
           <Form.Control
             type="text"
             placeholder="Your phone number"
@@ -148,9 +147,9 @@ const SignupForm = () => {
         </Form.Group>
 
         <Form.Group className="input-group">
-          <Form.Label className="input-group-text" htmlFor="email">
+          <div className="input-group-prepend"><Form.Label className="input-group-text" htmlFor="email">
             Email
-          </Form.Label>
+          </Form.Label></div>
           <Form.Control
             type="email"
             placeholder="Your email address"
@@ -165,9 +164,9 @@ const SignupForm = () => {
         </Form.Group>
 
         <Form.Group className="input-group">
-          <Form.Label className="input-group-text" htmlFor="password">
+          <div className="input-group-prepend"><Form.Label className="input-group-text" htmlFor="password">
             Password
-          </Form.Label>
+          </Form.Label></div>
           <Form.Control
             type="password"
             placeholder="Your password"

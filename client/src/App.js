@@ -7,6 +7,7 @@ import Footer from "./components/Footer";
 import { ApolloProvider } from "@apollo/react-hooks";
 import ApolloClient from "apollo-boost";
 import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
+import Welcome from "./pages/Welcome";
 import Home from "./pages/Home";
 import SingleTherapist from "./pages/SingleTherapist";
 import Dashboard from "./pages/Dashboard";
@@ -33,7 +34,8 @@ function App() {
         <>
           <Navbar />
           <Switch>
-            <Route exact path="/" component={Home} />
+            <Route exact path="/" component={Welcome} />
+            <Route exact path="/home" component={Home} />
             <Route exact path="/therapist/:id" component={SingleTherapist} />
             <Route exact path="/dashboard" component={Dashboard} />
             <Route exact path="/file/:id" component={SingleFile} />
