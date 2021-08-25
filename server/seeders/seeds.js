@@ -99,7 +99,7 @@ db.once("open", async () => {
       specialties.push(specialtiesArray[specialtynum]);
     }
 
-    const bio = `Hello my name is ${first_name}, I specialize in ${specialties.join(', ')} and I'm skilled in ${skills.join(', ')} and ` + faker.company.bs();
+    const bio = `Hello my name is ${first_name} ${last_name}, I specialize in ${specialties.join(', ')} and I'm skilled in ${skills.join(', ')} and ` + faker.company.bs();
 
     therapistData.push({
       username,
