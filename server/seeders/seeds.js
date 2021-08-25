@@ -41,6 +41,15 @@ db.once("open", async () => {
     "Family counseling",
     "Behavioral therapy",
     "Cognitive therapist",
+    "Post Covid-19 rehabilitation",
+    "Virtual therapy",
+    "Occupational therapy",
+    "Neuro and musculoskeletal physiotherapy",
+    "Amputee rehabilitation",
+    "Paediatric rehabilitation",
+    "Creative movement therapy",
+    "Cancer rehabilitation",
+    "Burn rehabilitation"
   ];
 
   const skillsArray = [
@@ -52,6 +61,9 @@ db.once("open", async () => {
     "Dance",
     "Meditation",
     "Board games",
+    "Yoga",
+    "Tai Chi",
+    "Pilates"
   ];
 
   for (let i = 0; i < 200; i++) {
