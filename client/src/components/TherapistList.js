@@ -9,7 +9,7 @@ const TherapistList = ({ therapists }) => {
   }
 
   return (
-    <Row className="m-3">
+    <>
       {therapists &&
         therapists.map((therapist) => (
           <Col className="col-xl-3" key={therapist._id+'card'}>
@@ -52,7 +52,7 @@ const TherapistList = ({ therapists }) => {
             </Card>
           </Col>
         ))}
-    </Row>
+    </>
   );
 };
 

@@ -71,7 +71,7 @@ db.once("open", async () => {
     "Physical education"
   ];
 
-  for (let i = 0; i < 20; i++) {
+  for (let i = 0; i < 50; i++) {
     const username = faker.internet.userName();
     const email = faker.internet.email(username);
     const password = "Test123$";
