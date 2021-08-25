@@ -34,8 +34,8 @@ function App() {
         <>
           <Navbar />
           <Switch>
-            <Route exact path="/" component={Welcome} />
-            <Route exact path="/home" component={Home} />
+            <Route exact path="/" component={Home} />
+            <Route exact path="/welcome" component={Welcome} />
             <Route exact path="/therapist/:id" component={SingleTherapist} />
             <Route exact path="/dashboard" component={Dashboard} />
             <Route exact path="/file/:id" component={SingleFile} />
