@@ -3,7 +3,7 @@ import React from "react";
 import {
   Container
 } from "react-bootstrap";
-import  { Redirect } from 'react-router-dom';
+import { Redirect } from 'react-router-dom';
 
 import Auth from "../utils/auth";
 // We may decide to add the Search Bar to the dashboard
@@ -16,13 +16,13 @@ const Dashboard = () => {
     console.log(loggedIn);
     return (
         <>
-        { loggedIn ? (
-            <Container>
-                <MyFiles/>
-            </Container>
-        ):(
-            <Redirect to="/" />
-        )}  
+            {loggedIn ? (
+                <Container>
+                    <MyFiles />
+                </Container>
+            ) : (
+                <Redirect to="/" />
+            )}
         </>
     );
 };

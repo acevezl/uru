@@ -83,9 +83,11 @@ const LoginForm = () => {
         </Form.Group>
 
         <Form.Group className="input-group">
-          <Form.Label className="input-group-text" htmlFor="password">
+          <div className="input-group-prepend">
+            <Form.Label className="input-group-text" htmlFor="password">
             Password
-          </Form.Label>
+          </Form.Label></div>
+
           <Form.Control
             type="password"
             placeholder="Your password"
