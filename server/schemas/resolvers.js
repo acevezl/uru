@@ -89,22 +89,6 @@ const resolvers = {
 
       throw new AuthenticationError("You need to be logged in!");
     },
-    updateFile: async (parent, args, context) => {
-      if (context.user) {
-         
-        const file = await File.findByIdAndUpdate(
-          { _id: args._id },
-          { $push: { appointments: args.appointment } },
-          { new: true }
-        );
-
-<<<<<<< HEAD
-        return file;
-      }
-      throw new AuthenticationError("You need to be logged in!");
-    },
-=======
-    },
     addAppointment: async (parent, args, context) => {
       if (context.user) {
         const appointment = await Appointment.create({...args});
@@ -121,7 +105,6 @@ const resolvers = {
       throw new AuthenticationError('You need to be logged in!');
 
     }
->>>>>>> f154b86502f5ccd74330eddaa392d042bc42c2c2
   },
 };
 
