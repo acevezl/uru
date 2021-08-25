@@ -1,15 +1,8 @@
-import React, { useState, useParams } from "react";
+import React from "react";
 import {
-  Row,
-  Container,
-  Col,
-  Form,
-  InputGroup,
-  FormControl,
-  Button,
+  Container
 } from "react-bootstrap";
 
-import Auth from "../utils/auth";
 import SearchBar from "../components/SearchBar";
 
 const Home = () => {

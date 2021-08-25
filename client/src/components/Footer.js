@@ -1,5 +1,5 @@
 import React from "react";
-import { Github, Facebook, Instagram } from "react-bootstrap-icons";
+import { Github } from "react-bootstrap-icons";
 
 const Footer = () => {
   return (
@@ -25,7 +25,10 @@ const Footer = () => {
             that is youer than you" ~ Dr. Seuss
           </li>
         </ul>{" "}
-        URU&copy;2021{" "}
+        <div>
+        <Github href='https://github.com/acevezl/uru'></Github>
+        </div>
+        URU &copy; 2021{" "}
       </div>
     </footer>
   );

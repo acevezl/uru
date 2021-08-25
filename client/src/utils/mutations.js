@@ -61,18 +61,15 @@ export const ADD_FILE = gql`
       therapist_id
     }
   }
-`;
+`
 
-export const UPDATE_FILE = gql`
-  mutation updateFile($_id: String!, $appointment: String!) {
-    updateFile(_id: $id, appointment: $appointment) {
-      _id
-      appointment
-      patient_name
-      dob
-      allergies
+export const ADD_APPOINTMENT = gql `
+  mutation addAppointment($date: String!, $time: String!, $notes: String!, $file_id: String!) {
+    addAppointment(date: $date, time: $time, notes: $notes, file_id: $file_id) {
+      date
+      time
       notes
-      therapist_id
+      file_id
     }
   }
-`;
+`

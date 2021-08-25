@@ -4,7 +4,7 @@ import { useQuery } from "@apollo/react-hooks";
 
 import { Col, Row, Card } from "react-bootstrap";
 import { Link } from "react-router-dom";
-import { age } from "../utils/helpers"
+import { age } from "../utils/helpers";
 
 const MyFiles = (props) => {
 
@@ -18,14 +18,13 @@ const MyFiles = (props) => {
     return (
         <>
         <div className="m-5 row justify-content-center">
-            <h1>My health files</h1> 
+            <h1 key={user._id+'h1'}>My health files</h1> 
         </div>
         <Row className="m-3 justify-content-center"> 
         { user.files.map( file => (
-            <Col className="col-xl-3">
+            <Col className="col-xl-3" key={file._id+'card'}>
                 <Card
                     className="mb-3"
-                    key={file._id}
                 >
                     <Card.Body className="search-results-card">
                         <Card.Title>

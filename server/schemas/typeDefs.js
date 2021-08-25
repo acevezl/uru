@@ -34,6 +34,15 @@ const typeDefs = gql`
     allergies: String
     notes: String
     therapist_id: String
+    appointments:[Appointment]
+  }
+
+  type Appointment {
+    _id: ID
+    date: String
+    time: String
+    notes: String
+    file_id: String
   }
 
   type Auth {
@@ -67,7 +76,12 @@ const typeDefs = gql`
       notes: String!
       therapist_id: String
     ): File
-    updateFile(_id: ID!, appointment: String!): File
+    addAppointment(
+      date: String!
+      time: String!
+      notes: String!
+      file_id: String!
+    ): Appointment
   }
 `;
 

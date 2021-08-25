@@ -45,8 +45,8 @@ const SingleTherapist = (props) => {
             >
               <h2>Specialties</h2>
               <ul>
-                {therapist.specialties.map((specialty) => (
-                  <li>{specialty}</li>
+                {therapist.specialties.map((specialty, key) => (
+                  <li key={therapist._id+'specialty'+key}>{specialty}</li>
                 ))}
               </ul>
             </div>
@@ -56,8 +56,8 @@ const SingleTherapist = (props) => {
             >
               <h2>Skills</h2>
               <ul>
-                {therapist.skills.map((skill) => (
-                  <li>{skill}</li>
+                {therapist.skills.map((skill, key) => (
+                  <li key={therapist._id+'skill'+key}>{skill}</li>
                 ))}
               </ul>
             </div>

@@ -2,8 +2,6 @@ import React, { useState } from "react";
 
 import { Modal, Tab } from "react-bootstrap";
 
-import { FilePersonFill } from "react-bootstrap-icons";
-
 import SignUpForm from "./SignupForm";
 import LoginForm from "./LoginForm";
 
@@ -17,8 +15,8 @@ const AppNavbar = () => {
   return (
     <>
       <nav className="navbar navbar-custom border-bottom sticky-top">
-        <a className="navbar-brand" href="/Home">
-          <img className="photo" src="/images/uru2we.png" />
+        <a className="navbar-brand" href="/">
+          <img className="photo" src="/images/uru2we.png" alt="URU logo"/>
         </a>
 
         <div className="form-inline">
@@ -79,7 +77,7 @@ const AppNavbar = () => {
             <Modal.Title>Login</Modal.Title>
           </Modal.Header>
           <Modal.Body className="tabcon0">
-            <img className="logologin" src="images/urukids.png" />
+            <img className="logologin" src="images/urukids.png" alt="Five kids in a row playing with toys, baloons and a bicycle"/>
             {/* <img className="logologin" src="images/g1.jpeg" /> */}
             <Tab.Content>
               <LoginForm handleModalClose={() => setShowLoginModal(false)} />
@@ -105,7 +103,7 @@ const AppNavbar = () => {
             </Modal.Title>
           </Modal.Header>
           <Modal.Body className="tabcon">
-            <img className="logosignup" src="images/urus.png" />
+            <img className="logosignup" src="images/urus.png" alt="URU logo"/>
             <Tab.Content>
               <SignUpForm handleModalClose={() => setShowSignupModal(false)} />
             </Tab.Content>

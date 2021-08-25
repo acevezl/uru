@@ -555,10 +555,10 @@ p {
   font-size: 14px !important;
 }
 
-.search-results-card {
-  min-height: 280px;
+.therapist-card{
+  min-width: 260px!important;
+  min-height: 540px!important;
 }
-
 /* .btn-lg {
   padding: 1.2rem 2.5rem;
   font-size: 1.8rem;

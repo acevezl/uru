@@ -3,23 +3,23 @@ import { validateEmail } from "../utils/helpers";
 import emailjs from 'emailjs-com';
 
 import { useMutation, useQuery } from "@apollo/react-hooks";
-import { ADD_FILE } from '../utils/mutations';
 import { QUERY_ME } from '../utils/queries';
+import { ADD_APPOINTMENT } from "../utils/mutations";
 
-const ReachOutForm = (props) => {
+const AppointmentForm = (props) => {
 
+    const file = props.file;
     const therapist = props.therapist;
 
     const { loading, data } = useQuery(QUERY_ME);
     const user = data?.me || {};
 
-    const [addFile, { error }] = useMutation(ADD_FILE);
+    const [addAppointment, { error }] = useMutation(ADD_APPOINTMENT);
 
     const [formState, setFormState] = useState(
         {
-            patient_name: '',
-            dob: '',
-            allergies: '',
+            date: '',
+            time: '',
             notes: ''
         }
     );
@@ -44,8 +44,7 @@ const ReachOutForm = (props) => {
     const [submissionSuccess, setSubmissionSuccess] = useState(false);
     const [formVisibility, setFormVisibility] = useState(false);
 
-
-    const { patient_name, dob, allergies, notes } = formState;
+    const { date, time, notes } = formState;
 
     function handleChange(event) {
 
@@ -65,15 +64,15 @@ const ReachOutForm = (props) => {
     const handleSubmit = async event => {
         event.preventDefault();
 
-        const therapist_id = therapist._id;
+        const file_id = file._id;
 
         try {
-            await addFile({
+            await addAppointment({
                 variables: {
-                    patient_name, dob, allergies, notes, therapist_id
+                    date, time, notes, file_id
                 }
             });
-            sendEmail();
+            //sendEmail();
             setSubmissionSuccess(true);
         } catch (e) {
             console.error(e);
@@ -90,7 +89,7 @@ const ReachOutForm = (props) => {
         <h4>Something went wrong while sending your request.</h4>
         <p>
             Please try refreshing this page and try again. If the problem persists, please contact us at
-            <a href='mailto:admin@uru.com'>admin@uru.com</a>. Thank you.
+             <a href='mailto:admin@uru.com'>admin@uru.com</a>. Thank you.
         </p>
         </>
         )
@@ -100,41 +99,35 @@ const ReachOutForm = (props) => {
         <section className='contact'>
             { !formVisibility ? (
                 <button type="button" className="btn btn-warning btn-lg px-4 me-md-2 text-white" onClick={() => setFormVisibility(true)}>
-                    Establish Care
+                    Schedule an Appointment
                 </button>
             ) : (
                     <>
-                        <h2 className='col-12'>Establish Care with {therapist.first_name} {therapist.last_name}</h2>
+                        <h2 className='col-12'>Schedule an appointment with {therapist.first_name} {therapist.last_name}</h2>
                         <div className='contactForm mb-5'>
                             {submissionSuccess ? (
                                 <>
-                                    <h3>Thank you for your interest.</h3>
-                                    <p>We have sent your Care request to {therapist.first_name}. They will respond to your message within the next 24-48 hours.</p>
+                                    <h3>Thank you for your appointment request.</h3>
+                                    <p>We have sent your appointment to {therapist.first_name}. They will respond to your message within the next 24-48 hours.</p>
                                     <button data-testid="button" className='btn btn-primary' onClick={() => { setFormVisibility(false); setSubmissionSuccess(false); }}>Ok</button>
                                 </>
                             ) : (
                                     <form id='contact-form' className='mb-3' onSubmit={handleSubmit}>
                                         <div className='input-group mb-3'>
                                             <div className='input-group-prepend'>
-                                                <label className='input-group-text' htmlFor='patient_name'>Patient Name:</label>
+                                                <label className='input-group-text' htmlFor='date'>Date</label>
                                             </div>
-                                            <input className='form-control' type='text' id='patient_name' name='patient_name' defaultValue={patient_name} onBlur={handleChange} />
+                                            <input className='form-control' type='text' id='date' name='date' defaultValue={date} onBlur={handleChange} />
                                         </div>
                                         <div className='input-group mb-3'>
                                             <div className='input-group-prepend'>
-                                                <label className='input-group-text' htmlFor='dob'>Date of birth:</label>
+                                                <label className='input-group-text' htmlFor='time'>Time:</label>
                                             </div>
-                                            <input className='form-control' type='text' id='dob' name='dob' defaultValue={dob} onBlur={handleChange} />
+                                            <input className='form-control' type='text' id='time' name='time' defaultValue={time} onBlur={handleChange} />
                                         </div>
                                         <div className='input-group mb-3'>
                                             <div className='input-group-prepend'>
-                                                <label className='input-group-text' htmlFor='allergies'>Allergies:</label>
-                                            </div>
-                                            <input className='form-control' type='text' id='allergies' name='allergies' defaultValue={allergies} onBlur={handleChange} />
-                                        </div>
-                                        <div className='input-group mb-3'>
-                                            <div className='input-group-prepend'>
-                                                <label className='input-group-text' htmlFor='notes'>How can {therapist.first_name} help you? </label>
+                                                <label className='input-group-text' htmlFor='notes'>Messasge</label>
                                             </div>
                                             <textarea className='form-control' rows='5' type='text' id='notes' name='notes' defaultValue={notes} onBlur={handleChange} />
                                         </div>
@@ -158,5 +151,5 @@ const ReachOutForm = (props) => {
     );
 }
 
-export default ReachOutForm;
+export default AppointmentForm;
 
