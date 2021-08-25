@@ -26,23 +26,23 @@ const resolvers = {
       return therapists;
     },
     therapistcriteria: async (parent, args, context) => {
-      const criteriaArray = args.criteria.split(' ');
-      
+      const criteriaArray = args.criteria.split(" ");
+
       let orCriteria = [];
-      criteriaArray.forEach( word => {
-        orCriteria.push({specialties: { "$regex": word, "$options": "i" }});
-        orCriteria.push({skills: { "$regex": word, "$options": "i" }});
+      criteriaArray.forEach((word) => {
+        orCriteria.push({ specialties: { $regex: word, $options: "i" } });
+        orCriteria.push({ skills: { $regex: word, $options: "i" } });
       });
       console.log(orCriteria);
       const therapists = await Therapist.find({
-        $or: orCriteria 
+        $or: orCriteria,
       }).select("-__v -password");
       return therapists;
     },
-    file: async (parent,{ _id }) => {
+    file: async (parent, { _id }) => {
       const file = await File.findOne({ _id });
       return file;
-    }
+    },
   },
 
   Mutation: {
@@ -71,26 +71,38 @@ const resolvers = {
     addFile: async (parent, args, context) => {
       console.log(args);
       if (context.user) {
-        const file = await File.create({...args});
+        const file = await File.create({ ...args });
 
         await User.findByIdAndUpdate(
           { _id: context.user._id },
-          { $push: { files: file._id }},
-          { new: true}
-        )
+          { $push: { files: file._id } },
+          { new: true }
+        );
 
         await Therapist.findByIdAndUpdate(
           { _id: args.therapist_id },
-          { $push: { files: file._id}},
-          { new: true}
-        )
+          { $push: { files: file._id } },
+          { new: true }
+        );
 
         return file;
       }
 
-      throw new AuthenticationError('You need to be logged in!');
+      throw new AuthenticationError("You need to be logged in!");
+    },
+    updateFile: async (parent, args, context) => {
+      if (context.user) {
+         
+        const file = await File.findByIdAndUpdate(
+          { _id: args._id },
+          { $push: { appointments: args.appointment } },
+          { new: true }
+        );
 
-    }
+        return file;
+      }
+      throw new AuthenticationError("You need to be logged in!");
+    },
   },
 };
 

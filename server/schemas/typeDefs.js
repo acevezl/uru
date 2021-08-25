@@ -45,8 +45,8 @@ const typeDefs = gql`
     me: User
     user(username: String!): User
     therapist(_id: ID!): Therapist
-    therapists:[Therapist]
-    therapistcriteria(criteria: String):[Therapist]
+    therapists: [Therapist]
+    therapistcriteria(criteria: String): [Therapist]
     file(_id: ID!): File
   }
 
@@ -67,6 +67,7 @@ const typeDefs = gql`
       notes: String!
       therapist_id: String
     ): File
+    updateFile(_id: ID!, appointment: String!): File
   }
 `;
 

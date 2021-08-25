@@ -1,28 +1,31 @@
-const { Schema, model } = require('mongoose');
+const { Schema, model } = require("mongoose");
 
-const fileSchema = new Schema(
+const fileSchema = new Schema({
+  patient_name: {
+    type: String,
+    required: true,
+  },
+  dob: {
+    type: Date,
+    required: true,
+  },
+  allergies: {
+    type: String,
+  },
+  notes: {
+    type: String,
+    required: true,
+  },
+  therapist_id: {
+    type: String,
+  },
+  appointments: [
     {
-        patient_name: {
-            type: String,
-            required: true,
-        },
-        dob: {
-            type: Date,
-            required: true,
-        },
-        allergies: {
-            type: String
-        },
-        notes: {
-            type: String,
-            required: true,
-        },
-        therapist_id : {
-            type: String
-        }
-    }
-);
+      type: Date,
+    },
+  ],
+});
 
-const File = model('File', fileSchema);
+const File = model("File", fileSchema);
 
 module.exports = File;

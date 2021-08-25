@@ -44,6 +44,11 @@ const SingleFile = (props) => {
         </div>
         <div className="m-5 row justify-content-center">
             <h3>Upcoming appointments...</h3>
+            <ul>
+                {therapist.appointments?.map(apt => (
+                    <li>{apt}</li>
+                ))}
+                </ul>
         </div>
         </>
     )

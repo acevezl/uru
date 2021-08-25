@@ -17,13 +17,14 @@ const AppNavbar = () => {
   return (
     <>
       <nav className="navbar navbar-custom border-bottom sticky-top">
-        <a className="navbar-brand" href="/">
+        <a className="navbar-brand" href="/Home">
           <img className="photo" src="/images/uru2we.png" />
         </a>
 
         <div className="form-inline">
           {Auth.loggedIn() ? (
             <>
+
               <a
                 className="btn btn-outline-secondary my-2 my-sm-0 mx-2"
                 href="/dashboard"
@@ -40,6 +41,12 @@ const AppNavbar = () => {
             </>
           ) : (
             <>
+              <a
+                className="btn btn-outline-secondary my-2 my-sm-0 mx-2"
+                href="/home"
+              >
+                Home
+              </a>
               <button
                 className="btn btn-outline-secondary my-2 my-sm-0 mx-2"
                 type="submit"
