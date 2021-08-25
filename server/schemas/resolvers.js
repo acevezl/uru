@@ -28,17 +28,16 @@ const resolvers = {
     therapistcriteria: async (parent, args, context) => {
       const criteriaArray = args.criteria.split(" ");
 
-      let orCriteria = [];
+      let searchCriteria = [];
       criteriaArray.forEach((word) => {
-        orCriteria.push({ specialties: { $regex: word, $options: "i" } });
-        orCriteria.push({ skills: { $regex: word, $options: "i" } });
-        orCriteria.push({ first_name: { $regex: word, $options: "i" } });
-        orCriteria.push({ last_name: { $regex: word, $options: "i" } });
-        orCriteria.push({ username: { $regex: word, $options: "i" } });
+        searchCriteria.push({ bio: { $regex: word, $options: "i" } });
       });
-      const therapists = await Therapist.find({
-        $or: orCriteria,
-      }).select("-__v -password");
+      
+      const therapists = await Therapist.find(
+        { 
+          $and: searchCriteria
+        }
+      ).select("-__v -password");
       return therapists;
     },
     file: async (parent,{ _id }) => {
