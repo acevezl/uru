@@ -32,7 +32,7 @@ const AppointmentForm = (props) => {
             user_first_name: user.first_name
         };
 
-        emailjs.send('service_v6o96rr', 'template_f1mty9m', templateParams, 'user_QURpyb1Ov7NpwPVclx5Di')
+        emailjs.send('service_v6o96rr', 'template_8c3zmlp', templateParams, 'user_QURpyb1Ov7NpwPVclx5Di')
             .then((response) => {
                 console.log('SUCCESS!', response.status, response.text);
             }, (err) => {
