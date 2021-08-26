@@ -60,7 +60,7 @@ const LoginForm = () => {
             show={showAlert}
             variant="danger"
           >
-            Something went wrong with your login credentials!
+            The credentials entered are not correct
           </Alert>
         )}
         <Form.Group className="input-group">

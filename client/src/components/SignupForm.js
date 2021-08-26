@@ -72,7 +72,7 @@ const SignupForm = () => {
           show={showAlert}
           variant="danger"
         >
-          Something went wrong with your signup!
+          We cannot sign you up with that e-mail. Please contact support.
         </Alert>
 
         <Form.Group className="input-group">
