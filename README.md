@@ -6,7 +6,7 @@
 
 URU is an economic and social empowerment application that builds a connection between child and behavior therapist.
 
-One of the most familiar challenge a Behavior Therapist encounter is that they do not have time to perform proper assessment of the patient they will work with.
+One of the most familiar challenges a Behavior Therapist encounter is that they do not have time to perform proper assessment of the patient they will work with.
 Agencies or employers usually assigns a therapist without proper knowledge about a child with developmental disability.
 URU improves the functionality of a dating app. It establishes initial connections between the parent and the behavior therapist and then the child.
 
