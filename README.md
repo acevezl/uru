@@ -58,6 +58,9 @@ URU: https://uru.herokuapp.com/
 - Brad https://github.com/smithfamily42
 - Abel https://github.com/codenameabel
 
+![teamURU](https://user-images.githubusercontent.com/71202250/131274535-01ee521f-c72b-4242-999e-bbacd3d6c135.PNG)
+
+
 ### License
 
 MIT License is used for this project. Please refer to the license.txt file for more details.
